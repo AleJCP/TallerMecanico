@@ -30,17 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCerrarS = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSalir = new DevExpress.XtraEditors.SimpleButton();
+            this.btnServicios = new DevExpress.XtraEditors.SimpleButton();
+            this.btnVehiculos = new DevExpress.XtraEditors.SimpleButton();
+            this.btnClientes = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMenu = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.mainLabel = new DevExpress.XtraEditors.LabelControl();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.btnTrabajos = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -49,18 +50,80 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(79)))));
-            this.panel1.Controls.Add(this.simpleButton6);
-            this.panel1.Controls.Add(this.simpleButton5);
-            this.panel1.Controls.Add(this.simpleButton4);
-            this.panel1.Controls.Add(this.simpleButton3);
-            this.panel1.Controls.Add(this.simpleButton2);
-            this.panel1.Controls.Add(this.simpleButton1);
+            this.panel1.Controls.Add(this.btnTrabajos);
+            this.panel1.Controls.Add(this.btnCerrarS);
+            this.panel1.Controls.Add(this.btnSalir);
+            this.panel1.Controls.Add(this.btnServicios);
+            this.panel1.Controls.Add(this.btnVehiculos);
+            this.panel1.Controls.Add(this.btnClientes);
+            this.panel1.Controls.Add(this.btnMenu);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(215, 633);
+            this.panel1.Size = new System.Drawing.Size(215, 661);
             this.panel1.TabIndex = 0;
+            // 
+            // btnCerrarS
+            // 
+            this.btnCerrarS.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
+            this.btnCerrarS.Location = new System.Drawing.Point(138, 580);
+            this.btnCerrarS.Name = "btnCerrarS";
+            this.btnCerrarS.Size = new System.Drawing.Size(71, 69);
+            this.btnCerrarS.TabIndex = 7;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
+            this.btnSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
+            this.btnSalir.Location = new System.Drawing.Point(12, 580);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(71, 69);
+            this.btnSalir.TabIndex = 6;
+            // 
+            // btnServicios
+            // 
+            this.btnServicios.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnServicios.Appearance.Options.UseFont = true;
+            this.btnServicios.Location = new System.Drawing.Point(0, 325);
+            this.btnServicios.Name = "btnServicios";
+            this.btnServicios.Size = new System.Drawing.Size(215, 69);
+            this.btnServicios.TabIndex = 4;
+            this.btnServicios.Text = "Servicios (Oferta)";
+            this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);
+            // 
+            // btnVehiculos
+            // 
+            this.btnVehiculos.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnVehiculos.Appearance.Options.UseFont = true;
+            this.btnVehiculos.Location = new System.Drawing.Point(0, 250);
+            this.btnVehiculos.Name = "btnVehiculos";
+            this.btnVehiculos.Size = new System.Drawing.Size(215, 69);
+            this.btnVehiculos.TabIndex = 3;
+            this.btnVehiculos.Text = "Vehiculos";
+            this.btnVehiculos.Click += new System.EventHandler(this.btnVehiculos_Click);
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnClientes.Appearance.Options.UseFont = true;
+            this.btnClientes.Location = new System.Drawing.Point(0, 175);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(215, 69);
+            this.btnClientes.TabIndex = 2;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnMenu.Appearance.Options.UseFont = true;
+            this.btnMenu.Location = new System.Drawing.Point(0, 100);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(215, 69);
+            this.btnMenu.TabIndex = 1;
+            this.btnMenu.Text = "Menu Principal";
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // panel2
             // 
@@ -71,87 +134,9 @@
             this.panel2.Size = new System.Drawing.Size(215, 100);
             this.panel2.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(79)))));
-            this.panel3.Controls.Add(this.labelControl1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(215, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(802, 100);
-            this.panel3.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(215, 100);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(802, 533);
-            this.panel4.TabIndex = 2;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(0, 100);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(215, 69);
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "Clientes";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(0, 175);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(215, 69);
-            this.simpleButton2.TabIndex = 2;
-            this.simpleButton2.Text = "Vehiculos";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Location = new System.Drawing.Point(0, 250);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(215, 69);
-            this.simpleButton3.TabIndex = 3;
-            this.simpleButton3.Text = "Servicios (Oferta)";
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Location = new System.Drawing.Point(0, 325);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(215, 69);
-            this.simpleButton4.TabIndex = 4;
-            this.simpleButton4.Text = "Servicios Realizados";
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Location = new System.Drawing.Point(12, 552);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(71, 69);
-            this.simpleButton5.TabIndex = 5;
-            // 
-            // simpleButton6
-            // 
-            this.simpleButton6.Location = new System.Drawing.Point(138, 552);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(71, 69);
-            this.simpleButton6.TabIndex = 6;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))));
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(271, 41);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(253, 40);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Menu Principal";
-            // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel5.Location = new System.Drawing.Point(21, 13);
@@ -159,15 +144,59 @@
             this.panel5.Size = new System.Drawing.Size(172, 68);
             this.panel5.TabIndex = 6;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(79)))));
+            this.panel3.Controls.Add(this.mainLabel);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(215, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(945, 100);
+            this.panel3.TabIndex = 1;
+            // 
+            // mainLabel
+            // 
+            this.mainLabel.Appearance.Font = new System.Drawing.Font("Tahoma", 25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))));
+            this.mainLabel.Appearance.ForeColor = System.Drawing.Color.White;
+            this.mainLabel.Appearance.Options.UseFont = true;
+            this.mainLabel.Appearance.Options.UseForeColor = true;
+            this.mainLabel.Location = new System.Drawing.Point(271, 41);
+            this.mainLabel.Name = "mainLabel";
+            this.mainLabel.Size = new System.Drawing.Size(253, 40);
+            this.mainLabel.TabIndex = 0;
+            this.mainLabel.Text = "Menu Principal";
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.BackColor = System.Drawing.Color.White;
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(215, 100);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(945, 561);
+            this.mainPanel.TabIndex = 2;
+            // 
+            // btnTrabajos
+            // 
+            this.btnTrabajos.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnTrabajos.Appearance.Options.UseFont = true;
+            this.btnTrabajos.Location = new System.Drawing.Point(0, 400);
+            this.btnTrabajos.Name = "btnTrabajos";
+            this.btnTrabajos.Size = new System.Drawing.Size(215, 69);
+            this.btnTrabajos.TabIndex = 5;
+            this.btnTrabajos.Text = "Servicios Realizados";
+            this.btnTrabajos.Click += new System.EventHandler(this.btnTrabajos_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 633);
-            this.Controls.Add(this.panel4);
+            this.ClientSize = new System.Drawing.Size(1160, 661);
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -180,16 +209,17 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnMenu;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.Panel mainPanel;
+        private DevExpress.XtraEditors.SimpleButton btnCerrarS;
+        private DevExpress.XtraEditors.SimpleButton btnSalir;
+        private DevExpress.XtraEditors.SimpleButton btnServicios;
+        private DevExpress.XtraEditors.SimpleButton btnVehiculos;
+        private DevExpress.XtraEditors.SimpleButton btnClientes;
+        private DevExpress.XtraEditors.LabelControl mainLabel;
         private System.Windows.Forms.Panel panel5;
+        private DevExpress.XtraEditors.SimpleButton btnTrabajos;
     }
 }

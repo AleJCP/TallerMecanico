@@ -55,6 +55,7 @@
             this.textPass.Name = "textPass";
             this.textPass.Properties.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 14F);
             this.textPass.Properties.Appearance.Options.UseFont = true;
+            this.textPass.Properties.UseSystemPasswordChar = true;
             this.textPass.Size = new System.Drawing.Size(200, 30);
             this.textPass.TabIndex = 1;
             // 
@@ -107,12 +108,13 @@
             this.simpleButton1.Size = new System.Drawing.Size(200, 65);
             this.simpleButton1.TabIndex = 6;
             this.simpleButton1.Text = "Iniciar Sesión";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 466);
+            this.ClientSize = new System.Drawing.Size(357, 468);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelControl3);

@@ -13,7 +13,7 @@ namespace TallerMecanico.Entidades
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public string usuario { get; set; } //Unico
-        public string password { get; set; }
+        public string Usuario { get; set; } //Unico
+        public string Password { get; set; }
     }
 }
