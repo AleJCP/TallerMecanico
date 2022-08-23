@@ -12,9 +12,13 @@ namespace TallerMecanico.Vistas.Principal
 {
     public partial class MenuPrincipal : Form
     {
+        ICServicios cServicios = new CServicios();
         public MenuPrincipal()
         {
             InitializeComponent();
+            EmpTotales.Text = cServicios.ContarClientes().ToString();
+            SerTotales.Text = cServicios.ContarServicios().ToString();
+            //Faltan los servicios realizados
         }
     }
 }

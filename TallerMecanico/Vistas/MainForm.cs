@@ -23,10 +23,10 @@ namespace TallerMecanico.Vistas
             activeForm = MenuForm;
 
             //Evento de cierre de aplicacion
-            this.Disposed += ((s, x) =>
-            {
-                Application.Exit();
-            });
+            //this.Disposed += ((s, x) =>
+            //{
+            //    Application.Exit();
+            //});
         }
 
         private void AbrirFormHijo(Form formHijo)
@@ -83,6 +83,25 @@ namespace TallerMecanico.Vistas
             mainLabel.Text = "Servicios Realizados";
             AbrirFormHijo(MenuForm);
             activeForm = MenuForm;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea Salir?","Salir",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnCerrarS_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea Cerrar Sesión?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                new Login().Show();                
+                this.Dispose();
+                
+                
+            }
         }
     }
 }

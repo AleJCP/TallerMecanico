@@ -11,9 +11,106 @@ namespace TallerMecanico
     class CServicios : ICServicios
     {
         #region Usuario
-        bool ICServicios.TryLogIn(TallerMecanico.Entidades.User tryUser)
+        bool ICServicios.TryLogIn(User tryUser)
         {
             return new LogicaUsers().TryLogIn(tryUser);
+        }
+        #endregion
+
+        #region Cliente
+        ICollection<Cliente> ICServicios.ListarClientes()
+        {
+            return new LogicaCliente().ListarClientes();
+        }
+
+        int ICServicios.ContarClientes()
+        {
+            return new LogicaCliente().ContarClientes();
+        }
+
+        bool ICServicios.IsCedulaValid(Cliente cliente)
+        {
+            return new LogicaCliente().IsCedulaValid(cliente);
+        }
+
+        bool ICServicios.IsTelefonoValid(Cliente cliente)
+        {
+            return new LogicaCliente().IsTelefonoValid(cliente);   
+        }
+        Cliente ICServicios.GetCliente(Cliente clienteE)
+        {
+            return new LogicaCliente().GetCliente(clienteE);
+        }
+        bool ICServicios.AddCliente(Cliente cliente)
+        {
+            return new LogicaCliente().AddCliente(cliente);
+        }
+
+        bool ICServicios.EditCliente(Cliente cliente)
+        {
+            return new LogicaCliente().EditCliente(cliente);
+        }
+
+        bool ICServicios.DropCliente(Cliente cliente)
+        {
+            return new LogicaCliente().DropCliente(cliente);
+        }
+        #endregion
+
+        #region Servicio
+        ICollection<Servicio> ICServicios.ListarServicios()
+        {
+            return new LogicaServicio().ListarServicios();
+        }
+        int ICServicios.ContarServicios()
+        {
+            return new LogicaServicio().ContarServicios();
+        }
+        bool ICServicios.AddServicio(Servicio servicio)
+        {
+            return new LogicaServicio().AddServicio(servicio);
+        }
+
+        bool ICServicios.EditServicio(Servicio servicio)
+        {
+            return new LogicaServicio().EditServicio(servicio);
+        }
+
+        bool ICServicios.DropServicio(Servicio servicio)
+        {
+            return new LogicaServicio().DropServicio(servicio);
+        }
+        #endregion
+
+
+        #region Vehiculo
+        ICollection<Vehiculo> ICServicios.ListarVehiculos()
+        {
+            return new LogicaVehiculo().ListarVehiculos();
+        }
+        ICollection<Vehiculo> ICServicios.ListarVehiculosPorCliente(Cliente cliente)
+        {
+            return new LogicaVehiculo().ListarVehiculosPorCliente(cliente);
+        }
+        bool ICServicios.IsPlacaValid(Vehiculo vehiculo)
+        {
+            return new LogicaVehiculo().IsPlacaValid(vehiculo);
+        }
+        Vehiculo ICServicios.GetVehiculo(Vehiculo vehiculo)
+        {
+            return new LogicaVehiculo().GetVehiculo(vehiculo);
+        }
+        bool ICServicios.AddVehiculo(Vehiculo vehiculo)
+        {
+            return new LogicaVehiculo().AddVehiculo(vehiculo);
+        }
+        bool ICServicios.EditVehiculo(Vehiculo vehiculo)
+        {
+            return new LogicaVehiculo().EditVehiculo(vehiculo);
+        }
+        bool ICServicios.DropVehiculo(Vehiculo vehiculo)
+        {
+            return new LogicaVehiculo().DropVehiculo(vehiculo);
         }
         #endregion
     }

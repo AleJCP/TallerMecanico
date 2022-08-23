@@ -85,6 +85,10 @@
     <Compile Include="Migrations\202208221800426_InitialCreate2.designer.cs">
       <DependentUpon>202208221800426_InitialCreate2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208231442144_addedFieldAnio.cs" />
+    <Compile Include="Migrations\202208231442144_addedFieldAnio.designer.cs">
+      <DependentUpon>202208231442144_addedFieldAnio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="Vistas\Clientes\ClienteDialog.cs">
@@ -125,17 +129,35 @@
     <Compile Include="Vistas\Principal\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Servicios\ServicioDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Servicios\ServicioDialog.Designer.cs">
+      <DependentUpon>ServicioDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Servicios\ServicioForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\Servicios\ServicioForm.Designer.cs">
       <DependentUpon>ServicioForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Trabajos\TrabajoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Trabajos\TrabajoDialog.Designer.cs">
+      <DependentUpon>TrabajoDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Trabajos\TrabajoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\Trabajos\TrabajoForm.Designer.cs">
       <DependentUpon>TrabajoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Vehiculos\CedulaFiltroDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Vehiculos\CedulaFiltroDialog.Designer.cs">
+      <DependentUpon>CedulaFiltroDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Vehiculos\VehiculoDialog.cs">
       <SubType>Form</SubType>
@@ -157,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208221800426_InitialCreate2.resx">
       <DependentUpon>202208221800426_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208231442144_addedFieldAnio.resx">
+      <DependentUpon>202208231442144_addedFieldAnio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -183,11 +208,20 @@
     <EmbeddedResource Include="Vistas\Principal\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Servicios\ServicioDialog.resx">
+      <DependentUpon>ServicioDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Servicios\ServicioForm.resx">
       <DependentUpon>ServicioForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Trabajos\TrabajoDialog.resx">
+      <DependentUpon>TrabajoDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Trabajos\TrabajoForm.resx">
       <DependentUpon>TrabajoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Vehiculos\CedulaFiltroDialog.resx">
+      <DependentUpon>CedulaFiltroDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Vehiculos\VehiculoDialog.resx">
       <DependentUpon>VehiculoDialog.cs</DependentUpon>

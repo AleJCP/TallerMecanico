@@ -103,6 +103,10 @@
             this.textTelefono.Name = "textTelefono";
             this.textTelefono.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textTelefono.Properties.Appearance.Options.UseFont = true;
+            this.textTelefono.Properties.MaskSettings.Set("mask", "d");
+            this.textTelefono.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.textTelefono.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.textTelefono.Properties.MaxLength = 10;
             this.textTelefono.Size = new System.Drawing.Size(219, 30);
             this.textTelefono.TabIndex = 15;
             // 
@@ -112,6 +116,10 @@
             this.textCedula.Name = "textCedula";
             this.textCedula.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textCedula.Properties.Appearance.Options.UseFont = true;
+            this.textCedula.Properties.MaskSettings.Set("mask", "d");
+            this.textCedula.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.textCedula.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.textCedula.Properties.MaxLength = 8;
             this.textCedula.Size = new System.Drawing.Size(219, 30);
             this.textCedula.TabIndex = 14;
             // 
@@ -170,6 +178,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(130, 51);
             this.simpleButton1.TabIndex = 21;
             this.simpleButton1.Text = "Guardar";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // ClienteDialog
             // 

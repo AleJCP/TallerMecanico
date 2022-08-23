@@ -89,6 +89,7 @@
             this.btnAddTrabajo.Size = new System.Drawing.Size(112, 42);
             this.btnAddTrabajo.TabIndex = 0;
             this.btnAddTrabajo.Text = "Realizar Servicio";
+            this.btnAddTrabajo.Click += new System.EventHandler(this.btnAddTrabajo_Click);
             // 
             // TrabajoForm
             // 

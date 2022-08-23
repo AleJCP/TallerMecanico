@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTrabajos = new DevExpress.XtraEditors.SimpleButton();
             this.btnCerrarS = new DevExpress.XtraEditors.SimpleButton();
             this.btnSalir = new DevExpress.XtraEditors.SimpleButton();
             this.btnServicios = new DevExpress.XtraEditors.SimpleButton();
@@ -41,7 +42,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.mainLabel = new DevExpress.XtraEditors.LabelControl();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.btnTrabajos = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -64,22 +64,35 @@
             this.panel1.Size = new System.Drawing.Size(215, 661);
             this.panel1.TabIndex = 0;
             // 
+            // btnTrabajos
+            // 
+            this.btnTrabajos.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnTrabajos.Appearance.Options.UseFont = true;
+            this.btnTrabajos.Location = new System.Drawing.Point(0, 400);
+            this.btnTrabajos.Name = "btnTrabajos";
+            this.btnTrabajos.Size = new System.Drawing.Size(215, 69);
+            this.btnTrabajos.TabIndex = 5;
+            this.btnTrabajos.Text = "Servicios Realizados";
+            this.btnTrabajos.Click += new System.EventHandler(this.btnTrabajos_Click);
+            // 
             // btnCerrarS
             // 
-            this.btnCerrarS.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
+            this.btnCerrarS.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarS.ImageOptions.Image")));
             this.btnCerrarS.Location = new System.Drawing.Point(138, 580);
             this.btnCerrarS.Name = "btnCerrarS";
             this.btnCerrarS.Size = new System.Drawing.Size(71, 69);
             this.btnCerrarS.TabIndex = 7;
+            this.btnCerrarS.Click += new System.EventHandler(this.btnCerrarS_Click);
             // 
             // btnSalir
             // 
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
-            this.btnSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
+            this.btnSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.ImageOptions.Image")));
             this.btnSalir.Location = new System.Drawing.Point(12, 580);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(71, 69);
             this.btnSalir.TabIndex = 6;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnServicios
             // 
@@ -175,17 +188,6 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(945, 561);
             this.mainPanel.TabIndex = 2;
-            // 
-            // btnTrabajos
-            // 
-            this.btnTrabajos.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnTrabajos.Appearance.Options.UseFont = true;
-            this.btnTrabajos.Location = new System.Drawing.Point(0, 400);
-            this.btnTrabajos.Name = "btnTrabajos";
-            this.btnTrabajos.Size = new System.Drawing.Size(215, 69);
-            this.btnTrabajos.TabIndex = 5;
-            this.btnTrabajos.Text = "Servicios Realizados";
-            this.btnTrabajos.Click += new System.EventHandler(this.btnTrabajos_Click);
             // 
             // MainForm
             // 

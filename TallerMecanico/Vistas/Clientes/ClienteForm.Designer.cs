@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDropCliente = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditCliente = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddCliente = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlCliente = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.bindingSourceCliente = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,6 +60,7 @@
             this.btnDropCliente.Size = new System.Drawing.Size(112, 42);
             this.btnDropCliente.TabIndex = 2;
             this.btnDropCliente.Text = "Eliminar Cliente";
+            this.btnDropCliente.Click += new System.EventHandler(this.btnDropCliente_Click);
             // 
             // btnEditCliente
             // 
@@ -65,6 +69,7 @@
             this.btnEditCliente.Size = new System.Drawing.Size(112, 42);
             this.btnEditCliente.TabIndex = 1;
             this.btnEditCliente.Text = "Editar Cliente";
+            this.btnEditCliente.Click += new System.EventHandler(this.btnEditCliente_Click);
             // 
             // btnAddCliente
             // 
@@ -105,6 +110,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCliente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -117,5 +123,6 @@
         private DevExpress.XtraEditors.SimpleButton btnDropCliente;
         private DevExpress.XtraEditors.SimpleButton btnEditCliente;
         private DevExpress.XtraEditors.SimpleButton btnAddCliente;
+        private System.Windows.Forms.BindingSource bindingSourceCliente;
     }
 }

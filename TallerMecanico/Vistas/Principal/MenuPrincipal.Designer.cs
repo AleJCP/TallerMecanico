@@ -35,7 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.DepTotales = new DevExpress.XtraEditors.LabelControl();
+            this.SerTotales = new DevExpress.XtraEditors.LabelControl();
             this.EmpTotales = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -51,9 +51,9 @@
             this.panel3.Controls.Add(this.MesActual);
             this.panel3.Controls.Add(this.labelControl3);
             this.panel3.Controls.Add(this.NomPorMes);
-            this.panel3.Location = new System.Drawing.Point(581, 29);
+            this.panel3.Location = new System.Drawing.Point(618, 29);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(263, 164);
+            this.panel3.Size = new System.Drawing.Size(288, 164);
             this.panel3.TabIndex = 9;
             // 
             // MesActual
@@ -97,10 +97,10 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(164)))), ((int)(((byte)(230)))));
             this.panel2.Controls.Add(this.labelControl6);
             this.panel2.Controls.Add(this.labelControl2);
-            this.panel2.Controls.Add(this.DepTotales);
-            this.panel2.Location = new System.Drawing.Point(299, 29);
+            this.panel2.Controls.Add(this.SerTotales);
+            this.panel2.Location = new System.Drawing.Point(315, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(263, 164);
+            this.panel2.Size = new System.Drawing.Size(282, 164);
             this.panel2.TabIndex = 8;
             // 
             // labelControl6
@@ -127,17 +127,17 @@
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Servicios";
             // 
-            // DepTotales
+            // SerTotales
             // 
-            this.DepTotales.Appearance.Font = new System.Drawing.Font("Tahoma", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.DepTotales.Appearance.ForeColor = System.Drawing.Color.White;
-            this.DepTotales.Appearance.Options.UseFont = true;
-            this.DepTotales.Appearance.Options.UseForeColor = true;
-            this.DepTotales.Location = new System.Drawing.Point(17, 56);
-            this.DepTotales.Name = "DepTotales";
-            this.DepTotales.Size = new System.Drawing.Size(56, 48);
-            this.DepTotales.TabIndex = 3;
-            this.DepTotales.Text = "50";
+            this.SerTotales.Appearance.Font = new System.Drawing.Font("Tahoma", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.SerTotales.Appearance.ForeColor = System.Drawing.Color.White;
+            this.SerTotales.Appearance.Options.UseFont = true;
+            this.SerTotales.Appearance.Options.UseForeColor = true;
+            this.SerTotales.Location = new System.Drawing.Point(17, 56);
+            this.SerTotales.Name = "SerTotales";
+            this.SerTotales.Size = new System.Drawing.Size(56, 48);
+            this.SerTotales.TabIndex = 3;
+            this.SerTotales.Text = "50";
             // 
             // EmpTotales
             // 
@@ -159,7 +159,7 @@
             this.panel1.Controls.Add(this.labelControl1);
             this.panel1.Location = new System.Drawing.Point(12, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(263, 164);
+            this.panel1.Size = new System.Drawing.Size(281, 164);
             this.panel1.TabIndex = 7;
             // 
             // labelControl5
@@ -191,7 +191,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(856, 476);
+            this.ClientSize = new System.Drawing.Size(927, 476);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -216,7 +216,7 @@
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl DepTotales;
+        private DevExpress.XtraEditors.LabelControl SerTotales;
         private DevExpress.XtraEditors.LabelControl EmpTotales;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.LabelControl labelControl5;

@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gridControlServicio = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDropCliente = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditCliente = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddServicio = new DevExpress.XtraEditors.SimpleButton();
+            this.bindingSourceServicio = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlServicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceServicio)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlServicio
@@ -75,6 +78,7 @@
             this.btnDropCliente.Size = new System.Drawing.Size(112, 42);
             this.btnDropCliente.TabIndex = 2;
             this.btnDropCliente.Text = "Eliminar Servicio";
+            this.btnDropCliente.Click += new System.EventHandler(this.btnDropCliente_Click);
             // 
             // btnEditCliente
             // 
@@ -83,6 +87,7 @@
             this.btnEditCliente.Size = new System.Drawing.Size(112, 42);
             this.btnEditCliente.TabIndex = 1;
             this.btnEditCliente.Text = "Editar Servicio";
+            this.btnEditCliente.Click += new System.EventHandler(this.btnEditCliente_Click);
             // 
             // btnAddServicio
             // 
@@ -91,6 +96,7 @@
             this.btnAddServicio.Size = new System.Drawing.Size(112, 42);
             this.btnAddServicio.TabIndex = 0;
             this.btnAddServicio.Text = "Agregar Servicio";
+            this.btnAddServicio.Click += new System.EventHandler(this.btnAddServicio_Click);
             // 
             // ServicioForm
             // 
@@ -104,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlServicio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceServicio)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -116,5 +123,6 @@
         private DevExpress.XtraEditors.SimpleButton btnDropCliente;
         private DevExpress.XtraEditors.SimpleButton btnEditCliente;
         private DevExpress.XtraEditors.SimpleButton btnAddServicio;
+        private System.Windows.Forms.BindingSource bindingSourceServicio;
     }
 }

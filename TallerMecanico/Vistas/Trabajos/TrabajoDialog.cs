@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace TallerMecanico.Vistas.Trabajos
 {
-    public partial class TrabajoForm : Form
+    public partial class TrabajoDialog : Form
     {
-        public TrabajoForm()
+        public TrabajoDialog()
         {
             InitializeComponent();
-        }
-
-        private void btnAddTrabajo_Click(object sender, EventArgs e)
-        {
-            Form Dialog = new TrabajoDialog();
-            Dialog.ShowDialog();
         }
     }
 }

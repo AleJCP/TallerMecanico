@@ -16,6 +16,7 @@ namespace TallerMecanico.Entidades
         public string Modelo { get; set; }
         public string Color { get; set; }
         public string Tipo { get; set; }
+        public string Anio { get; set; }
         public int IdCliente { get; set; }
         // Objeto que representa la clave externa.
         [ForeignKey("IdCliente")]
