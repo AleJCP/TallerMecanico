@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -48,6 +49,7 @@
             this.textCedula = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textAnio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textTipo.Properties)).BeginInit();
@@ -57,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaca.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textCedula.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -129,6 +132,9 @@
             this.textTipo.Name = "textTipo";
             this.textTipo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textTipo.Properties.Appearance.Options.UseFont = true;
+            this.textTipo.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
+            this.textTipo.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
+            this.textTipo.Properties.MaskSettings.Set("mask", "\\p{Lu}+");
             this.textTipo.Size = new System.Drawing.Size(219, 30);
             this.textTipo.TabIndex = 7;
             // 
@@ -148,6 +154,9 @@
             this.textColor.Name = "textColor";
             this.textColor.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textColor.Properties.Appearance.Options.UseFont = true;
+            this.textColor.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
+            this.textColor.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
+            this.textColor.Properties.MaskSettings.Set("mask", "\\p{Lu}+");
             this.textColor.Size = new System.Drawing.Size(219, 30);
             this.textColor.TabIndex = 6;
             // 
@@ -157,6 +166,9 @@
             this.textModelo.Name = "textModelo";
             this.textModelo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textModelo.Properties.Appearance.Options.UseFont = true;
+            this.textModelo.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
+            this.textModelo.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
+            this.textModelo.Properties.MaskSettings.Set("mask", "\\p{Lu}+");
             this.textModelo.Size = new System.Drawing.Size(219, 30);
             this.textModelo.TabIndex = 5;
             // 
@@ -166,6 +178,9 @@
             this.textMarca.Name = "textMarca";
             this.textMarca.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textMarca.Properties.Appearance.Options.UseFont = true;
+            this.textMarca.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
+            this.textMarca.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
+            this.textMarca.Properties.MaskSettings.Set("mask", "\\p{Lu}+");
             this.textMarca.Size = new System.Drawing.Size(219, 30);
             this.textMarca.TabIndex = 4;
             // 
@@ -298,6 +313,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textCedula.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -324,5 +340,6 @@
         private DevExpress.XtraEditors.SimpleButton btnBuscarCedula;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit textAnio;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }

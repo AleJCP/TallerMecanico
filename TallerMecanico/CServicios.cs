@@ -82,7 +82,6 @@ namespace TallerMecanico
         }
         #endregion
 
-
         #region Vehiculo
         ICollection<Vehiculo> ICServicios.ListarVehiculos()
         {
@@ -111,6 +110,13 @@ namespace TallerMecanico
         bool ICServicios.DropVehiculo(Vehiculo vehiculo)
         {
             return new LogicaVehiculo().DropVehiculo(vehiculo);
+        }
+        #endregion
+
+        #region TrabajoDTO
+        ICollection<TrabajoDTO> ICServicios.ListarTrabajosDTO()
+        {
+            return new LogicaTrabajo().ListarTrabajosDTO();
         }
         #endregion
     }

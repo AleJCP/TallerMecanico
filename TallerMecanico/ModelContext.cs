@@ -14,6 +14,7 @@ namespace TallerMecanico
         public DbSet<Servicio_Vehiculo> Servicio_Vehiculos { get; set; }
         public DbSet<Vehiculo> Vehiculos { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Trabajo> Trabajos { get; set; }
         public ModelContext()
             : base("name=ModelContext")
         {

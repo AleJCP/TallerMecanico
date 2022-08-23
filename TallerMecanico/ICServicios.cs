@@ -41,5 +41,9 @@ namespace TallerMecanico
         bool EditVehiculo(Vehiculo vehiculo);
         bool DropVehiculo(Vehiculo vehiculo);
         #endregion
+
+        #region TrabajoDTO
+        ICollection<TrabajoDTO> ListarTrabajosDTO();
+        #endregion
     }
 }

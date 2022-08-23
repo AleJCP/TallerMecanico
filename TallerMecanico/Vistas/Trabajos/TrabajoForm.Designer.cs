@@ -28,31 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.components = new System.ComponentModel.Container();
+            this.gridControlTrabajos = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDropCliente = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditCliente = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddTrabajo = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            this.bindingSourceTrabajos = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTrabajos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTrabajos)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControl1
+            // gridControlTrabajos
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 100);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(800, 350);
-            this.gridControl1.TabIndex = 3;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControlTrabajos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlTrabajos.Location = new System.Drawing.Point(0, 100);
+            this.gridControlTrabajos.MainView = this.gridView1;
+            this.gridControlTrabajos.Name = "gridControlTrabajos";
+            this.gridControlTrabajos.Size = new System.Drawing.Size(800, 350);
+            this.gridControlTrabajos.TabIndex = 3;
+            this.gridControlTrabajos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.gridControlTrabajos;
             this.gridView1.Name = "gridView1";
             // 
             // panel1
@@ -96,24 +99,26 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.gridControlTrabajos);
             this.Controls.Add(this.panel1);
             this.Name = "TrabajoForm";
             this.Text = "TrabajoForm";
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTrabajos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTrabajos)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gridControlTrabajos;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton btnDropCliente;
         private DevExpress.XtraEditors.SimpleButton btnEditCliente;
         private DevExpress.XtraEditors.SimpleButton btnAddTrabajo;
+        private System.Windows.Forms.BindingSource bindingSourceTrabajos;
     }
 }
