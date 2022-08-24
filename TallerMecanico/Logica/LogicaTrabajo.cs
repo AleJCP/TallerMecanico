@@ -89,8 +89,7 @@ namespace TallerMecanico.Logica
                     using (var DBTRANSACT = context.Database.BeginTransaction())
                     {
                         //Seteamos la info del vehiculo
-                        // y agregamos el trabajo en la tabla con transacciones
-                        trabajo.IdVehiculo = vehiculo.Id;
+                        // y agregamos el trabajo en la tabla con transacciones                        
                         trabajo = context.Trabajos.Add(trabajo);
 
                         //Agregar Todos los servicios, DECIDIR SI CAMBIAR LA LOGICA DE LA CALVE DEL VEHICULO 
@@ -115,5 +114,91 @@ namespace TallerMecanico.Logica
                 return false;
             }
         }
+
+        public bool EditTrabajo(Trabajo trabajo, Vehiculo vehiculo, List<Servicio> serviciosARealizar)
+        {
+            try
+            {
+                using (ModelContext context = new ModelContext())
+                {
+                    //Modificar la tabla trabajo (Modo edicion)
+                    //Borrar todos los registros quie coincidan con el ID del trabajo
+                    //Luego insertarlos nuevamente
+
+                    using (var DBTRANSACT = context.Database.BeginTransaction())
+                    {
+                        var t = from job in context.Trabajos
+                                where job.Id == trabajo.Id
+                                select job;
+                        Trabajo trabajoEditar = t.FirstOrDefault();
+                        context.Entry(trabajoEditar).State = System.Data.Entity.EntityState.Modified;
+                        trabajoEditar.Comentarios = trabajo.Comentarios;
+                        trabajoEditar.Fecha = trabajo.Fecha;
+                        trabajoEditar.IdVehiculo = trabajo.IdVehiculo;
+
+                        ///Como es una tabla de relacion, en caso de alguna modificacion en cuanto a los servicio
+                        ///Es importante eliminar todos los registros y volverlos a llenar
+                        ///Lo cual mantiene una correcta integridad ed la iformacion
+                        ///
+                        //Logica del servicio Eliminar los servicios asociados
+                        var lstServ = from sv in context.Servicio_Vehiculos
+                                      where sv.IdTrabajo == trabajo.Id
+                                      select sv;
+
+                        foreach(var item in lstServ.ToList())
+                        {
+                            context.Servicio_Vehiculos.Remove(item);
+                        }
+
+
+                        context.SaveChanges();
+                        //Guardamos para que permita hacer la inserción
+
+                        //Logica del servicio Agregar los servicios asociados
+                        foreach (var item in serviciosARealizar)
+                        {
+                            Servicio_Vehiculo sv = new Servicio_Vehiculo();
+                            sv.IdTrabajo = trabajo.Id;
+                            sv.IdServicio = item.Id;
+                            context.Servicio_Vehiculos.Add(sv);
+                        }
+
+                        
+
+                        context.SaveChanges();
+                        DBTRANSACT.Commit();
+
+                        return true;
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool DropTrabajo(Trabajo trabajo)
+        {
+            try
+            {
+                using (ModelContext context = new ModelContext())
+                {
+                    var lst = from t in context.Trabajos
+                              where t.Id == trabajo.Id
+                              select t;
+                    trabajo = lst.FirstOrDefault();
+                    context.Trabajos.Remove(trabajo);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+        }
+
     }
 }

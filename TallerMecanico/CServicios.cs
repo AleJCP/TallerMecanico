@@ -130,6 +130,16 @@ namespace TallerMecanico
         {
             return new LogicaTrabajo().AddTrabajo(trabajo,vehiculo,serviciosARealizar);
         }
+
+        bool ICServicios.EditTrabajo(Trabajo trabajo, Vehiculo vehiculo, List<Servicio> serviciosARealizar)
+        {
+            return new LogicaTrabajo().EditTrabajo(trabajo, vehiculo, serviciosARealizar);
+        }
+
+        bool ICServicios.DropTrabajo(Trabajo trabajo)
+        {
+            return new LogicaTrabajo().DropTrabajo(trabajo);
+        }
         #endregion
     }
 }

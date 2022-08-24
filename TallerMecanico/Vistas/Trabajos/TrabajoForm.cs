@@ -46,5 +46,30 @@ namespace TallerMecanico.Vistas.Trabajos
                 CargarTabla();
             }
         }
+
+        private void btnDropCliente_Click(object sender, EventArgs e)
+        {
+            TrabajoDTO trabajoDTO = bindingSourceTrabajos.Current as TrabajoDTO;
+            Trabajo trabajoSelected = new Trabajo();
+            trabajoSelected.Id = trabajoDTO.Id;
+
+            if (trabajoDTO != null)
+            {
+                if (MessageBox.Show($"Se eliminará el Vehiculo con el ID: {trabajoSelected.Id}? Toda la informacion asociada al Trabajo se eliminará", "Eliminar Trabajo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    
+                    if (cServicios.DropTrabajo(trabajoSelected))
+                    {
+                        MessageBox.Show($"Proceso Ejecutado con éxito", "Vehiculo Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CargarTabla();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Ha ocurrido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
     }
 }

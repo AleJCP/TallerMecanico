@@ -18,6 +18,7 @@ namespace TallerMecanico.Vistas.Trabajos
         Vehiculo vehiculoSeleccionado = new Vehiculo();
         List<Servicio> ListaServiciosARealizar = new List<Servicio>();
         string modo { get; set; }
+        int IDTrabajo { get; set; }
         public TrabajoDialog(Trabajo trabajo = null,string modo = "Guardar")
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace TallerMecanico.Vistas.Trabajos
             {
                 //Obtener el trabajo
                 Trabajo trabajoEdit = cServicios.GetTrabajo(trabajo);
+                IDTrabajo = trabajoEdit.Id;
                 //ServiciosARealizar IdTrabajo
                 List<Servicio> serviciosARealizarEdit = cServicios.GetServiciosARealizar(trabajo).ToList();
                 //Vehiculo
@@ -152,12 +154,15 @@ namespace TallerMecanico.Vistas.Trabajos
         {
             //Objeto Trabajo
             Trabajo trabajo = new Trabajo();
-            trabajo.Comentarios = String.IsNullOrEmpty(textComentario.Text) ? "Sin Comentarios" : textComentario.Text;
+            trabajo.Id = IDTrabajo;
+            trabajo.Comentarios = String.IsNullOrEmpty(textComentario.Text) ? "Sin Comentarios" : textComentario.Text;            
             trabajo.Fecha = dateEditFecha.DateTime;
 
             //Comprobar que este seteado un vehiculo
             if (vehiculoSeleccionado != null)
             {
+                //Seteamos el vehiculo
+                trabajo.IdVehiculo = vehiculoSeleccionado.Id;
                 //Comprobar que haya una fecha y sea igual o mayor que hoy
                 if (trabajo.Fecha != null && trabajo.Fecha >= DateTime.Today)
                 {
@@ -179,15 +184,15 @@ namespace TallerMecanico.Vistas.Trabajos
                         }
                         else
                         {
-                            //if (cServicios.EditCliente(cliente))
-                            //{
-                            //    this.Dispose();
-                            //    MessageBox.Show($"Proceso Ejecutado con éxito", "Trabajo Editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            //}
-                            //else
-                            //{
-                            //    MessageBox.Show($"Ha ocurrido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            //}
+                            if (cServicios.EditTrabajo(trabajo, vehiculoSeleccionado, ListaServiciosARealizar))
+                            {
+                                this.Dispose();
+                                MessageBox.Show($"Proceso Ejecutado con éxito", "Trabajo Editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Ha ocurrido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
 
                     }

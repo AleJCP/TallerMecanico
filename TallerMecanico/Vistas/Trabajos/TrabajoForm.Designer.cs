@@ -88,6 +88,7 @@
             this.btnDropCliente.Size = new System.Drawing.Size(137, 37);
             this.btnDropCliente.TabIndex = 2;
             this.btnDropCliente.Text = "Eliminar Servicio Realizado";
+            this.btnDropCliente.Click += new System.EventHandler(this.btnDropCliente_Click);
             // 
             // btnEditCliente
             // 

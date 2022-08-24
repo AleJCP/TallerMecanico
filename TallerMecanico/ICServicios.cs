@@ -47,6 +47,8 @@ namespace TallerMecanico
         Trabajo GetTrabajo(Trabajo trabajo);
         ICollection<Servicio> GetServiciosARealizar(Trabajo trabajo);
         bool AddTrabajo(Trabajo trabajo, Vehiculo vehiculo, List<Servicio> serviciosARealizar);
+        bool EditTrabajo(Trabajo trabajo, Vehiculo vehiculo, List<Servicio> serviciosARealizar);
+        bool DropTrabajo(Trabajo trabajo);
         #endregion
     }
 }

@@ -81,6 +81,7 @@ namespace TallerMecanico.Vistas.Vehiculos
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            //Logica de pasar la informacio de un cliente desde el model CedulaFiltroDialog
             CedulaFiltroDialog Dialog = new CedulaFiltroDialog();
             Dialog.ShowDialog();
 
