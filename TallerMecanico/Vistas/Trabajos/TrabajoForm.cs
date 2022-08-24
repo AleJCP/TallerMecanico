@@ -36,6 +36,7 @@ namespace TallerMecanico.Vistas.Trabajos
 
         public void CargarTabla()
         {
+            //Comprobamos que el filtro este encendido o no
             if (!filtroEncendido)
             {
                 bindingSourceTrabajos.DataSource = cServicios.ListarTrabajosDTO();
@@ -53,20 +54,27 @@ namespace TallerMecanico.Vistas.Trabajos
 
         private void btnEditCliente_Click(object sender, EventArgs e)
         {
+            //Editar cliente
+            //Capturamos el ID
             TrabajoDTO trabajoDTO = bindingSourceTrabajos.Current as TrabajoDTO;
 
             if(trabajoDTO != null)
             {
+                //Creamos un Objeto para enviarlo al Form Dialog y le decimos que va a editar
                 Trabajo trabajoSelected = new Trabajo();
                 trabajoSelected.Id = trabajoDTO.Id;
                 Form Dialog = new TrabajoDialog(trabajoSelected,"Editar");
                 Dialog.ShowDialog();
+                
                 CargarTabla();
             }
         }
 
         private void btnDropCliente_Click(object sender, EventArgs e)
         {
+            //Eliminar cliente
+            //Capturamos el ID
+            //Mostramos un aviso para eliminarlo o no
             TrabajoDTO trabajoDTO = bindingSourceTrabajos.Current as TrabajoDTO;
             Trabajo trabajoSelected = new Trabajo();
             trabajoSelected.Id = trabajoDTO.Id;
@@ -96,9 +104,16 @@ namespace TallerMecanico.Vistas.Trabajos
             Dialog.Show();
             CargarTabla();
         }
-
+        /// <summary>
+        /// Funcion que se llama desde el Dialogo de los Filtros TrabajoFiltroDialog para setear los parametros
+        /// </summary>
+        /// <param name="clienteS"></param>
+        /// <param name="vehiculoS"></param>
+        /// <param name="fechaS"></param>
+        /// <param name="fechaTipo"></param>
         public void AplicarFiltros(Cliente clienteS,Vehiculo vehiculoS,DateTime? fechaS, string fechaTipo)
         {
+            //Seteamos las variables del filtro
             clienteSeleccionado = clienteS;
             vehiculoSeleccionado = vehiculoS;
             fechaSeleccionada = fechaS;

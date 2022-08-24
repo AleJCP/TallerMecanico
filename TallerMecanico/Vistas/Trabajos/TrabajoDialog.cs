@@ -26,7 +26,7 @@ namespace TallerMecanico.Vistas.Trabajos
             this.modo = modo;
             //Seteamos la fecha de hoy en el date time
             dateEditFecha.DateTime = DateTime.Today;
-            //Cargar Binding Cliente, al seleccionar un Cliente Se carga la listade los vehiculos que posee el cliente
+            //Cargar Binding Cliente, al seleccionar un Cliente Se carga la lista de los vehiculos que posee el cliente
             bindingSourceClientes.DataSource = cServicios.ListarClientes();
             lookUpECliente.Properties.DataSource = bindingSourceClientes;
             lookUpECliente.Properties.DisplayMember = "Cedula";
@@ -38,29 +38,8 @@ namespace TallerMecanico.Vistas.Trabajos
             //Caso Mostrar
             if(modo == "Mostrar")
             {
-                //Obtener el trabajo
-                Trabajo trabajoEdit = cServicios.GetTrabajo(trabajo);
-                IDTrabajo = trabajoEdit.Id;
-                //ServiciosARealizar IdTrabajo
-                List<Servicio> serviciosARealizarEdit = cServicios.GetServiciosARealizar(trabajo).ToList();
-                //Vehiculo
-                Vehiculo v = new Vehiculo();
-                v.Id = trabajoEdit.IdVehiculo;
-
-                Vehiculo vehiculoEdit = cServicios.GetVehiculo(v);
-                //Cargar los datos del cliente,
-                Cliente cliente = new Cliente();
-                cliente.Id = vehiculoEdit.IdCliente;
-
-                Cliente clienteEdit = cServicios.GetCliente(cliente);
-                //Mostrar
-                ListaServiciosARealizar = serviciosARealizarEdit;
-                lookUpECliente.EditValue = clienteEdit;
-                lookUpEVehiculo.EditValue = vehiculoEdit;
-                //fecha
-                dateEditFecha.DateTime = trabajoEdit.Fecha;
-                textComentario.Text = trabajoEdit.Comentarios;
-
+                SetInfoTrabajo(trabajo);
+                //Desactivamos los controles
                 textComentario.Enabled = false;
                 lookUpECliente.Enabled = false;
                 lookUpEServicios.Enabled = false;                
@@ -73,41 +52,45 @@ namespace TallerMecanico.Vistas.Trabajos
             //Caso de editar
             if(trabajo != null)
             {
-                //Obtener el trabajo
-                Trabajo trabajoEdit = cServicios.GetTrabajo(trabajo);
-                IDTrabajo = trabajoEdit.Id;
-                //ServiciosARealizar IdTrabajo
-                List<Servicio> serviciosARealizarEdit = cServicios.GetServiciosARealizar(trabajo).ToList();
-                //Vehiculo
-                Vehiculo v = new Vehiculo();
-                v.Id = trabajoEdit.IdVehiculo;
-
-                Vehiculo vehiculoEdit = cServicios.GetVehiculo(v);
-                //Cargar los datos del cliente,
-                Cliente cliente = new Cliente();
-                cliente.Id = vehiculoEdit.IdCliente;
-
-                Cliente clienteEdit = cServicios.GetCliente(cliente);
-                //Mostrar
-                ListaServiciosARealizar = serviciosARealizarEdit;
-                lookUpECliente.EditValue = clienteEdit;                
-                lookUpEVehiculo.EditValue = vehiculoEdit;
-                //fecha
-                dateEditFecha.DateTime = trabajoEdit.Fecha;
-                textComentario.Text = trabajoEdit.Comentarios;
-
-
-                //Para hacer una insersion es necesario borrar primero los registros de servicioehiculos asociado al trabajo y volverlos a insertar
+                SetInfoTrabajo(trabajo);                
             }
-
-            CargarTablaTrabajos();
-        }
-        //servicios a relaizar por vehiculo
-        void CargarTablaTrabajos()
+            CargarTablaTrabajo_Servicios();
+        }    
+        /// <summary>
+        /// Hace referencia a los servicios asociados al TRABAJO o TRANSACCION
+        /// </summary>
+        void CargarTablaTrabajo_Servicios()
         {
             bindingSourceTrabajos.DataSource = ListaServiciosARealizar.ToList();
             gridControlTrabajos.DataSource = bindingSourceTrabajos;
         }
+
+        void SetInfoTrabajo(Trabajo trabajo)
+        {
+            //Obtener el trabajo
+            Trabajo trabajoEdit = cServicios.GetTrabajo(trabajo);
+            IDTrabajo = trabajoEdit.Id;
+            //ServiciosARealizar IdTrabajo
+            List<Servicio> serviciosARealizarEdit = cServicios.GetServiciosARealizar(trabajo).ToList();
+            //Vehiculo
+            Vehiculo v = new Vehiculo();
+            v.Id = trabajoEdit.IdVehiculo;
+
+            Vehiculo vehiculoEdit = cServicios.GetVehiculo(v);
+            //Cargar los datos del cliente,
+            Cliente cliente = new Cliente();
+            cliente.Id = vehiculoEdit.IdCliente;
+
+            Cliente clienteEdit = cServicios.GetCliente(cliente);
+            //Mostrar
+            ListaServiciosARealizar = serviciosARealizarEdit;
+            lookUpECliente.EditValue = clienteEdit;
+            lookUpEVehiculo.EditValue = vehiculoEdit;
+            //fecha
+            dateEditFecha.DateTime = trabajoEdit.Fecha;
+            textComentario.Text = trabajoEdit.Comentarios;
+        }
+        #region lookUpEventos        
         private void lookUpECliente_EditValueChanged(object sender, EventArgs e)
         {
             if (lookUpECliente != null)
@@ -156,12 +139,14 @@ namespace TallerMecanico.Vistas.Trabajos
                 btnGuardar.Enabled = true;
             }
         }
+        #endregion
 
-        private void btnSetToday_Click(object sender, EventArgs e)
-        {
-            dateEditFecha.DateTime = DateTime.Today;
-        }
-
+        #region BtnsEventos    
+        /// <summary>
+        /// Se Agrega un Servicio a la Relacion Trabajo_Servicios
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddTrabajo_Click(object sender, EventArgs e)
         {            
             Servicio servicio = lookUpEServicios.GetSelectedDataRow() as Servicio;
@@ -177,12 +162,12 @@ namespace TallerMecanico.Vistas.Trabajos
                         coincidencias.Add(item);
                     }
                 }              
-                
+                //Si no hay coincidencias, se agrega
                 if (coincidencias.Count == 0)
                 {
                     ListaServiciosARealizar.Add(servicio);
                     lookUpEServicios.EditValue = null;
-                    CargarTablaTrabajos();
+                    CargarTablaTrabajo_Servicios();
                 }
                 else
                 {
@@ -191,17 +176,25 @@ namespace TallerMecanico.Vistas.Trabajos
 
             }
         }
-
+        /// <summary>
+        /// Se Elimina un Servicio a la Relacion Trabajo_Servicios
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDropTrabajo_Click(object sender, EventArgs e)
         {
             Servicio servicioS = bindingSourceTrabajos.Current as Servicio;
             if (servicioS != null)
             {
                 ListaServiciosARealizar.Remove(servicioS);
-                CargarTablaTrabajos();
+                CargarTablaTrabajo_Servicios();
             }
         }
-
+        /// <summary>
+        /// Se guarda el TRABAJO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             //Objeto Trabajo
@@ -215,13 +208,13 @@ namespace TallerMecanico.Vistas.Trabajos
             {
                 //Seteamos el vehiculo
                 trabajo.IdVehiculo = vehiculoSeleccionado.Id;
-                //Comprobar que haya una fecha y sea igual o mayor que hoy
+                //Comprobar que haya una fecha
                 if (trabajo.Fecha != null)
                 {
                     if (ListaServiciosARealizar.Count > 0)
                     {
                         //Todo comprobado, se procede a agregar la operacion
-                        //Agregar Trabajo, Vehiculo, ListaServicios
+                        //Se utiliza la variable modo, para ejecutar la funcion de insertar o editar en la logica
                         if (modo.Equals("Guardar"))
                         {
                             if (cServicios.AddTrabajo(trabajo,vehiculoSeleccionado,ListaServiciosARealizar))
@@ -233,7 +226,7 @@ namespace TallerMecanico.Vistas.Trabajos
                             {
                                 MessageBox.Show($"Ha ocurrido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-                        }
+                        }                        
                         else
                         {
                             if (cServicios.EditTrabajo(trabajo, vehiculoSeleccionado, ListaServiciosARealizar))
@@ -265,5 +258,6 @@ namespace TallerMecanico.Vistas.Trabajos
             }
 
         }
+        #endregion
     }
 }
