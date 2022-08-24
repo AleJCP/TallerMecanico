@@ -118,6 +118,18 @@ namespace TallerMecanico
         {
             return new LogicaTrabajo().ListarTrabajosDTO();
         }
+        Trabajo ICServicios.GetTrabajo(Trabajo trabajo)
+        {
+            return new LogicaTrabajo().GetTrabajo(trabajo);
+        }
+        ICollection<Servicio> ICServicios.GetServiciosARealizar(Trabajo trabajo)
+        {
+            return new LogicaTrabajo().GetServiciosARealizar(trabajo);
+        }
+        bool ICServicios.AddTrabajo(Trabajo trabajo, Vehiculo vehiculo, List<Servicio> serviciosARealizar)
+        {
+            return new LogicaTrabajo().AddTrabajo(trabajo,vehiculo,serviciosARealizar);
+        }
         #endregion
     }
 }

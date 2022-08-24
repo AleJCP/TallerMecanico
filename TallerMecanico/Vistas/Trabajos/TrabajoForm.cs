@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TallerMecanico.Entidades;
 
 namespace TallerMecanico.Vistas.Trabajos
 {
@@ -30,6 +31,20 @@ namespace TallerMecanico.Vistas.Trabajos
         {
             bindingSourceTrabajos.DataSource = cServicios.ListarTrabajosDTO();
             gridControlTrabajos.DataSource = bindingSourceTrabajos;
+        }
+
+        private void btnEditCliente_Click(object sender, EventArgs e)
+        {
+            TrabajoDTO trabajoDTO = bindingSourceTrabajos.Current as TrabajoDTO;
+
+            if(trabajoDTO != null)
+            {
+                Trabajo trabajoSelected = new Trabajo();
+                trabajoSelected.Id = trabajoDTO.Id;
+                Form Dialog = new TrabajoDialog(trabajoSelected,"Editar");
+                Dialog.ShowDialog();
+                CargarTabla();
+            }
         }
     }
 }

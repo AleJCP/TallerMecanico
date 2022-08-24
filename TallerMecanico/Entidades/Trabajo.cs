@@ -10,7 +10,10 @@ namespace TallerMecanico.Entidades
     [Table("Trabajo")]
     class Trabajo
     {
-        public int Id { get; set; }     
+        public int Id { get; set; }
+        public int IdVehiculo { get; set; }
+        [ForeignKey("IdVehiculo")]
+        public Vehiculo Vehiculo { get; set; }
         public string Comentarios { get; set; }
         public DateTime Fecha { get; set; }
     }

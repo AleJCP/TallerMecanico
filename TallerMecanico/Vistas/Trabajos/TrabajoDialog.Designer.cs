@@ -39,7 +39,7 @@
             this.lookUpEServicios = new DevExpress.XtraEditors.LookUpEdit();
             this.btnSetToday = new DevExpress.XtraEditors.SimpleButton();
             this.dateEditFecha = new DevExpress.XtraEditors.DateEdit();
-            this.textNombre = new DevExpress.XtraEditors.TextEdit();
+            this.textComentario = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -60,7 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEServicios.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditFecha.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditFecha.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textNombre.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textComentario.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEVehiculo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpECliente.Properties)).BeginInit();
@@ -80,7 +80,7 @@
             this.groupBox1.Controls.Add(this.lookUpEServicios);
             this.groupBox1.Controls.Add(this.btnSetToday);
             this.groupBox1.Controls.Add(this.dateEditFecha);
-            this.groupBox1.Controls.Add(this.textNombre);
+            this.groupBox1.Controls.Add(this.textComentario);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Controls.Add(this.labelControl2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -182,16 +182,16 @@
             this.dateEditFecha.Size = new System.Drawing.Size(297, 30);
             this.dateEditFecha.TabIndex = 24;
             // 
-            // textNombre
+            // textComentario
             // 
-            this.textNombre.EditValue = "";
-            this.textNombre.Location = new System.Drawing.Point(177, 417);
-            this.textNombre.Name = "textNombre";
-            this.textNombre.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.textNombre.Properties.Appearance.Options.UseFont = true;
-            this.textNombre.Size = new System.Drawing.Size(548, 30);
-            this.textNombre.TabIndex = 12;
-            this.textNombre.ToolTip = "Opcional";
+            this.textComentario.EditValue = "";
+            this.textComentario.Location = new System.Drawing.Point(177, 417);
+            this.textComentario.Name = "textComentario";
+            this.textComentario.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.textComentario.Properties.Appearance.Options.UseFont = true;
+            this.textComentario.Size = new System.Drawing.Size(548, 30);
+            this.textComentario.TabIndex = 12;
+            this.textComentario.ToolTip = "Opcional";
             // 
             // labelControl1
             // 
@@ -326,7 +326,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEServicios.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditFecha.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditFecha.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textNombre.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textComentario.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEVehiculo.Properties)).EndInit();
@@ -342,7 +342,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.TextEdit textNombre;
+        private DevExpress.XtraEditors.TextEdit textComentario;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.GroupBox groupBox2;

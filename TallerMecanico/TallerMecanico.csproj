@@ -99,6 +99,10 @@
     <Compile Include="Migrations\202208232008229_ChangeDiagram_Added_Trabajo_Table1.designer.cs">
       <DependentUpon>202208232008229_ChangeDiagram_Added_Trabajo_Table1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208241238528_ChangeLogicTrabajos.cs" />
+    <Compile Include="Migrations\202208241238528_ChangeLogicTrabajos.designer.cs">
+      <DependentUpon>202208241238528_ChangeLogicTrabajos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="Vistas\Clientes\ClienteDialog.cs">
@@ -198,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208232008229_ChangeDiagram_Added_Trabajo_Table1.resx">
       <DependentUpon>202208232008229_ChangeDiagram_Added_Trabajo_Table1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208241238528_ChangeLogicTrabajos.resx">
+      <DependentUpon>202208241238528_ChangeLogicTrabajos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

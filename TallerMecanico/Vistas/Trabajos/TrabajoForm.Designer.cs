@@ -36,6 +36,12 @@
             this.btnEditCliente = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddTrabajo = new DevExpress.XtraEditors.SimpleButton();
             this.bindingSourceTrabajos = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDetalles = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFiltrarXCliente = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMostrarTodo = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFiltrarXVehiculo = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFiltrarXFecha = new DevExpress.XtraEditors.SimpleButton();
+            this.labelTextShow = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTrabajos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -60,6 +66,12 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelTextShow);
+            this.panel1.Controls.Add(this.btnFiltrarXFecha);
+            this.panel1.Controls.Add(this.btnFiltrarXVehiculo);
+            this.panel1.Controls.Add(this.btnMostrarTodo);
+            this.panel1.Controls.Add(this.btnFiltrarXCliente);
+            this.panel1.Controls.Add(this.btnDetalles);
             this.panel1.Controls.Add(this.btnDropCliente);
             this.panel1.Controls.Add(this.btnEditCliente);
             this.panel1.Controls.Add(this.btnAddTrabajo);
@@ -71,28 +83,79 @@
             // 
             // btnDropCliente
             // 
-            this.btnDropCliente.Location = new System.Drawing.Point(336, 33);
+            this.btnDropCliente.Location = new System.Drawing.Point(179, 12);
             this.btnDropCliente.Name = "btnDropCliente";
-            this.btnDropCliente.Size = new System.Drawing.Size(160, 42);
+            this.btnDropCliente.Size = new System.Drawing.Size(137, 37);
             this.btnDropCliente.TabIndex = 2;
             this.btnDropCliente.Text = "Eliminar Servicio Realizado";
             // 
             // btnEditCliente
             // 
-            this.btnEditCliente.Location = new System.Drawing.Point(162, 33);
+            this.btnEditCliente.Location = new System.Drawing.Point(25, 55);
             this.btnEditCliente.Name = "btnEditCliente";
-            this.btnEditCliente.Size = new System.Drawing.Size(154, 42);
+            this.btnEditCliente.Size = new System.Drawing.Size(132, 39);
             this.btnEditCliente.TabIndex = 1;
             this.btnEditCliente.Text = "Editar Servicio Realizado";
+            this.btnEditCliente.Click += new System.EventHandler(this.btnEditCliente_Click);
             // 
             // btnAddTrabajo
             // 
-            this.btnAddTrabajo.Location = new System.Drawing.Point(29, 33);
+            this.btnAddTrabajo.Location = new System.Drawing.Point(25, 12);
             this.btnAddTrabajo.Name = "btnAddTrabajo";
-            this.btnAddTrabajo.Size = new System.Drawing.Size(112, 42);
+            this.btnAddTrabajo.Size = new System.Drawing.Size(132, 37);
             this.btnAddTrabajo.TabIndex = 0;
             this.btnAddTrabajo.Text = "Realizar Servicio";
             this.btnAddTrabajo.Click += new System.EventHandler(this.btnAddTrabajo_Click);
+            // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Location = new System.Drawing.Point(179, 54);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.Size = new System.Drawing.Size(137, 40);
+            this.btnDetalles.TabIndex = 3;
+            this.btnDetalles.Text = "Mostrar Detalles";
+            // 
+            // btnFiltrarXCliente
+            // 
+            this.btnFiltrarXCliente.Location = new System.Drawing.Point(344, 12);
+            this.btnFiltrarXCliente.Name = "btnFiltrarXCliente";
+            this.btnFiltrarXCliente.Size = new System.Drawing.Size(105, 37);
+            this.btnFiltrarXCliente.TabIndex = 4;
+            this.btnFiltrarXCliente.Text = "Filtrar por Cliente";
+            // 
+            // btnMostrarTodo
+            // 
+            this.btnMostrarTodo.Location = new System.Drawing.Point(677, 12);
+            this.btnMostrarTodo.Name = "btnMostrarTodo";
+            this.btnMostrarTodo.Size = new System.Drawing.Size(105, 37);
+            this.btnMostrarTodo.TabIndex = 5;
+            this.btnMostrarTodo.Text = "Mostrar Todos";
+            // 
+            // btnFiltrarXVehiculo
+            // 
+            this.btnFiltrarXVehiculo.Location = new System.Drawing.Point(455, 12);
+            this.btnFiltrarXVehiculo.Name = "btnFiltrarXVehiculo";
+            this.btnFiltrarXVehiculo.Size = new System.Drawing.Size(105, 37);
+            this.btnFiltrarXVehiculo.TabIndex = 6;
+            this.btnFiltrarXVehiculo.Text = "Filtrar por Vehículo";
+            // 
+            // btnFiltrarXFecha
+            // 
+            this.btnFiltrarXFecha.Location = new System.Drawing.Point(566, 12);
+            this.btnFiltrarXFecha.Name = "btnFiltrarXFecha";
+            this.btnFiltrarXFecha.Size = new System.Drawing.Size(105, 37);
+            this.btnFiltrarXFecha.TabIndex = 7;
+            this.btnFiltrarXFecha.Text = "Filtrar por fecha";
+            // 
+            // labelTextShow
+            // 
+            this.labelTextShow.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelTextShow.Appearance.Options.UseFont = true;
+            this.labelTextShow.Location = new System.Drawing.Point(372, 66);
+            this.labelTextShow.Name = "labelTextShow";
+            this.labelTextShow.Size = new System.Drawing.Size(95, 16);
+            this.labelTextShow.TabIndex = 8;
+            this.labelTextShow.Text = "Mostrando todos";
             // 
             // TrabajoForm
             // 
@@ -106,6 +169,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTrabajos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTrabajos)).EndInit();
             this.ResumeLayout(false);
 
@@ -120,5 +184,11 @@
         private DevExpress.XtraEditors.SimpleButton btnEditCliente;
         private DevExpress.XtraEditors.SimpleButton btnAddTrabajo;
         private System.Windows.Forms.BindingSource bindingSourceTrabajos;
+        private DevExpress.XtraEditors.SimpleButton btnFiltrarXFecha;
+        private DevExpress.XtraEditors.SimpleButton btnFiltrarXVehiculo;
+        private DevExpress.XtraEditors.SimpleButton btnMostrarTodo;
+        private DevExpress.XtraEditors.SimpleButton btnFiltrarXCliente;
+        private DevExpress.XtraEditors.SimpleButton btnDetalles;
+        private DevExpress.XtraEditors.LabelControl labelTextShow;
     }
 }

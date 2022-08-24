@@ -13,10 +13,7 @@ namespace TallerMecanico.Entidades
         public int Id { get; set; }
         public int IdTrabajo { get; set; }
         [ForeignKey("IdTrabajo")]
-        public Trabajo Trabajo { get; set; }
-        public int IdVehiculo { get; set; }
-        [ForeignKey("IdVehiculo")]
-        public Vehiculo Vehiculo { get; set; }
+        public Trabajo Trabajo { get; set; }        
         public int IdServicio { get; set; }
         [ForeignKey("IdServicio")]
         public Servicio Servicio { get; set; }   

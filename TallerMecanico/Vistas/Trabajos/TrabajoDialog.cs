@@ -11,23 +11,56 @@ using TallerMecanico.Entidades;
 
 namespace TallerMecanico.Vistas.Trabajos
 {
-    public partial class TrabajoDialog : Form
+    partial class TrabajoDialog : Form
     {
         ICServicios cServicios = new CServicios();
         Cliente clienteSeleccionado = new Cliente();
         Vehiculo vehiculoSeleccionado = new Vehiculo();
         List<Servicio> ListaServiciosARealizar = new List<Servicio>();
-        public TrabajoDialog()
+        string modo { get; set; }
+        public TrabajoDialog(Trabajo trabajo = null,string modo = "Guardar")
         {
             InitializeComponent();
+            //seteamos el modo
+            this.modo = modo;
             //Cargar Binding Cliente, al seleccionar un Cliente Se carga la listade los vehiculos que posee el cliente
             bindingSourceClientes.DataSource = cServicios.ListarClientes();
             lookUpECliente.Properties.DataSource = bindingSourceClientes;
             lookUpECliente.Properties.DisplayMember = "Cedula";
+            lookUpECliente.Properties.KeyMember = "Cedula";
             //Cargar el Binding de los Servicios
             bindingSourceServicios.DataSource = cServicios.ListarServicios();
             lookUpEServicios.Properties.DataSource = bindingSourceServicios;
-            lookUpEServicios.Properties.DisplayMember = "Nombre";
+            lookUpEServicios.Properties.DisplayMember = "Nombre";            
+
+            //Caso de editar
+            if(trabajo != null)
+            {
+                //Obtener el trabajo
+                Trabajo trabajoEdit = cServicios.GetTrabajo(trabajo);
+                //ServiciosARealizar IdTrabajo
+                List<Servicio> serviciosARealizarEdit = cServicios.GetServiciosARealizar(trabajo).ToList();
+                //Vehiculo
+                Vehiculo v = new Vehiculo();
+                v.Id = trabajoEdit.IdVehiculo;
+
+                Vehiculo vehiculoEdit = cServicios.GetVehiculo(v);
+                //Cargar los datos del cliente,
+                Cliente cliente = new Cliente();
+                cliente.Id = vehiculoEdit.IdCliente;
+
+                Cliente clienteEdit = cServicios.GetCliente(cliente);
+                //Mostrar
+                ListaServiciosARealizar = serviciosARealizarEdit;
+                lookUpECliente.EditValue = clienteEdit;                
+                lookUpEVehiculo.EditValue = vehiculoEdit;
+                //fecha
+                dateEditFecha.DateTime = trabajoEdit.Fecha;
+                textComentario.Text = trabajoEdit.Comentarios;
+
+
+                //Para hacer una insersion es necesario borrar primero los registros de servicioehiculos asociado al trabajo y volverlos a insertar
+            }
 
             CargarTablaTrabajos();
         }
@@ -39,14 +72,20 @@ namespace TallerMecanico.Vistas.Trabajos
         private void lookUpECliente_EditValueChanged(object sender, EventArgs e)
         {
             if (lookUpECliente != null)
-            {
-                clienteSeleccionado = lookUpECliente.GetSelectedDataRow() as Cliente;
+            {                               
+               clienteSeleccionado = lookUpECliente.GetSelectedDataRow() as Cliente;
+
+                if(clienteSeleccionado == null)
+                {
+                    clienteSeleccionado = lookUpECliente.EditValue as Cliente;
+                }
                 //Seteamos info
                 labelCliente.Text = $"{clienteSeleccionado.Nombre} {clienteSeleccionado.Apellido}";
                 //Cargamos vehiculos
                 bindingSourceVehiculos.DataSource = cServicios.ListarVehiculosPorCliente(clienteSeleccionado);
                 lookUpEVehiculo.Properties.DataSource = bindingSourceVehiculos;
                 lookUpEVehiculo.Properties.DisplayMember = "Placa";
+                lookUpEVehiculo.Properties.KeyMember = "Placa";
                 //Limpiamos la informacion de los vehiculos al seleccionar el cliente
                 vehiculoSeleccionado = new Vehiculo();
                 //Desactivamos el btn Guardar
@@ -62,6 +101,11 @@ namespace TallerMecanico.Vistas.Trabajos
             if (lookUpEVehiculo != null)
             {
                 vehiculoSeleccionado = lookUpEVehiculo.GetSelectedDataRow() as Vehiculo;
+                //si no lo puede recoger con esa funcion se ejecuta esta otra
+                if (vehiculoSeleccionado == null)
+                {
+                    vehiculoSeleccionado = lookUpEVehiculo.EditValue as Vehiculo;
+                }
                 //Seteamos info
                 labelVehiculo.Text = $"{vehiculoSeleccionado.Marca} {vehiculoSeleccionado.Modelo} {vehiculoSeleccionado.Color} {vehiculoSeleccionado.Anio}";
                 //Activamos el boton
@@ -106,16 +150,45 @@ namespace TallerMecanico.Vistas.Trabajos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            //Objeto Trabajo
+            Trabajo trabajo = new Trabajo();
+            trabajo.Comentarios = String.IsNullOrEmpty(textComentario.Text) ? "Sin Comentarios" : textComentario.Text;
+            trabajo.Fecha = dateEditFecha.DateTime;
+
             //Comprobar que este seteado un vehiculo
             if (vehiculoSeleccionado != null)
             {
                 //Comprobar que haya una fecha y sea igual o mayor que hoy
-                if (dateEditFecha.DateTime != null && dateEditFecha.DateTime >= DateTime.Today)
+                if (trabajo.Fecha != null && trabajo.Fecha >= DateTime.Today)
                 {
                     if (ListaServiciosARealizar.Count > 0)
                     {
                         //Todo comprobado, se procede a agregar la operacion
                         //Agregar Trabajo, Vehiculo, ListaServicios
+                        if (modo.Equals("Guardar"))
+                        {
+                            if (cServicios.AddTrabajo(trabajo,vehiculoSeleccionado,ListaServiciosARealizar))
+                            {
+                                this.Dispose();
+                                MessageBox.Show($"Proceso Ejecutado con éxito", "Trabajo Agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Ha ocurrido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            //if (cServicios.EditCliente(cliente))
+                            //{
+                            //    this.Dispose();
+                            //    MessageBox.Show($"Proceso Ejecutado con éxito", "Trabajo Editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //}
+                            //else
+                            //{
+                            //    MessageBox.Show($"Ha ocurrido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //}
+                        }
 
                     }
                     else
