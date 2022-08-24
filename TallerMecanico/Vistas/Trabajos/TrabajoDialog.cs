@@ -163,12 +163,22 @@ namespace TallerMecanico.Vistas.Trabajos
         }
 
         private void btnAddTrabajo_Click(object sender, EventArgs e)
-        {
+        {            
             Servicio servicio = lookUpEServicios.GetSelectedDataRow() as Servicio;
             if (servicio != null)
             {
                 //Comprobamos que no lo contenga
-                if (!ListaServiciosARealizar.Contains(servicio))
+                List<Servicio> coincidencias = new List<Servicio>();
+                foreach (var item in ListaServiciosARealizar)
+                {
+                    //comprobamos con ID
+                    if(item.Id == servicio.Id)
+                    {
+                        coincidencias.Add(item);
+                    }
+                }              
+                
+                if (coincidencias.Count == 0)
                 {
                     ListaServiciosARealizar.Add(servicio);
                     lookUpEServicios.EditValue = null;
