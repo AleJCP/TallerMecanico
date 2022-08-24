@@ -18,7 +18,10 @@ namespace TallerMecanico.Vistas.Principal
             InitializeComponent();
             EmpTotales.Text = cServicios.ContarClientes().ToString();
             SerTotales.Text = cServicios.ContarServicios().ToString();
+            DateTime date = DateTime.Today;
+            NomPorMes.Text = cServicios.ContarTrabajosPorFecha(date).ToString();
             //Faltan los servicios realizados
+            MesActual.Text = $"Hoy, {DateTime.Now.ToString("M")} de {DateTime.Now.ToString("yyyy")} ";
         }
     }
 }

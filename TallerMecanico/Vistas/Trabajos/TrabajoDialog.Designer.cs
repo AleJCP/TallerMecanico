@@ -37,7 +37,6 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpEServicios = new DevExpress.XtraEditors.LookUpEdit();
-            this.btnSetToday = new DevExpress.XtraEditors.SimpleButton();
             this.dateEditFecha = new DevExpress.XtraEditors.DateEdit();
             this.textComentario = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -78,7 +77,6 @@
             this.groupBox1.Controls.Add(this.gridControlTrabajos);
             this.groupBox1.Controls.Add(this.labelControl5);
             this.groupBox1.Controls.Add(this.lookUpEServicios);
-            this.groupBox1.Controls.Add(this.btnSetToday);
             this.groupBox1.Controls.Add(this.dateEditFecha);
             this.groupBox1.Controls.Add(this.textComentario);
             this.groupBox1.Controls.Add(this.labelControl1);
@@ -135,6 +133,8 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
             // 
             // labelControl5
             // 
@@ -159,18 +159,10 @@
             this.lookUpEServicios.Size = new System.Drawing.Size(229, 30);
             this.lookUpEServicios.TabIndex = 18;
             // 
-            // btnSetToday
-            // 
-            this.btnSetToday.Location = new System.Drawing.Point(511, 47);
-            this.btnSetToday.Name = "btnSetToday";
-            this.btnSetToday.Size = new System.Drawing.Size(214, 31);
-            this.btnSetToday.TabIndex = 24;
-            this.btnSetToday.Text = "Hoy";
-            this.btnSetToday.Click += new System.EventHandler(this.btnSetToday_Click);
-            // 
             // dateEditFecha
             // 
             this.dateEditFecha.EditValue = null;
+            this.dateEditFecha.Enabled = false;
             this.dateEditFecha.Location = new System.Drawing.Point(194, 48);
             this.dateEditFecha.Name = "dateEditFecha";
             this.dateEditFecha.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
@@ -179,7 +171,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditFecha.Size = new System.Drawing.Size(297, 30);
+            this.dateEditFecha.Size = new System.Drawing.Size(531, 30);
             this.dateEditFecha.TabIndex = 24;
             // 
             // textComentario
@@ -352,7 +344,6 @@
         private DevExpress.XtraEditors.LabelControl labelCliente;
         private DevExpress.XtraEditors.SimpleButton btnGuardar;
         private DevExpress.XtraEditors.DateEdit dateEditFecha;
-        private DevExpress.XtraEditors.SimpleButton btnSetToday;
         private DevExpress.XtraEditors.LookUpEdit lookUpEVehiculo;
         private DevExpress.XtraEditors.LookUpEdit lookUpECliente;
         private System.Windows.Forms.BindingSource bindingSourceClientes;

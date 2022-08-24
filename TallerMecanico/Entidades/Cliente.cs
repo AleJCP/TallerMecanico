@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace TallerMecanico.Entidades
 {
     [Table("Cliente")]
-    class Cliente
+    public class Cliente
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

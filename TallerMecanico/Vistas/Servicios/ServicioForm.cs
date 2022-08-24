@@ -53,7 +53,7 @@ namespace TallerMecanico.Vistas.Servicios
             servicioSelected = bindingSourceServicio.Current as Servicio;
             if(servicioSelected != null)
             {
-                if (MessageBox.Show($"Se eliminará el Servicio con el ID: {servicioSelected.Id}? Toda la informacion asociada al Cliente se eliminará", "Eliminar Cliente", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                if (MessageBox.Show($"Se eliminará el Servicio con el ID: {servicioSelected.Id}? Toda la informacion asociada al Servicio se eliminará", "Eliminar Servicio", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     if (cServicios.DropServicio(servicioSelected))
                     {

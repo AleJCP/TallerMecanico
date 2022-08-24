@@ -118,6 +118,14 @@ namespace TallerMecanico
         {
             return new LogicaTrabajo().ListarTrabajosDTO();
         }
+        int ICServicios.ContarTrabajosPorFecha(DateTime date)
+        {
+            return new LogicaTrabajo().ContarTrabajosPorFecha(date);
+        }
+        ICollection<TrabajoDTO> ICServicios.ListarTrabajosDTOFiltrado(Cliente clienteE, Vehiculo vehiculoE, DateTime? fechaE,string fechaT)
+        {   
+            return new LogicaTrabajo().ListarTrabajosDTOFiltrado(clienteE, vehiculoE, fechaE,fechaT);
+        }        
         Trabajo ICServicios.GetTrabajo(Trabajo trabajo)
         {
             return new LogicaTrabajo().GetTrabajo(trabajo);

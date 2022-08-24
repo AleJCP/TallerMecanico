@@ -32,16 +32,14 @@
             this.gridControlTrabajos = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelTextShow = new DevExpress.XtraEditors.LabelControl();
+            this.btnMostrarTodo = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFiltrarXCliente = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDetalles = new DevExpress.XtraEditors.SimpleButton();
             this.btnDropCliente = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditCliente = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddTrabajo = new DevExpress.XtraEditors.SimpleButton();
             this.bindingSourceTrabajos = new System.Windows.Forms.BindingSource(this.components);
-            this.btnDetalles = new DevExpress.XtraEditors.SimpleButton();
-            this.btnFiltrarXCliente = new DevExpress.XtraEditors.SimpleButton();
-            this.btnMostrarTodo = new DevExpress.XtraEditors.SimpleButton();
-            this.btnFiltrarXVehiculo = new DevExpress.XtraEditors.SimpleButton();
-            this.btnFiltrarXFecha = new DevExpress.XtraEditors.SimpleButton();
-            this.labelTextShow = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTrabajos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -63,12 +61,12 @@
             // 
             this.gridView1.GridControl = this.gridControlTrabajos;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsBehavior.ReadOnly = true;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.labelTextShow);
-            this.panel1.Controls.Add(this.btnFiltrarXFecha);
-            this.panel1.Controls.Add(this.btnFiltrarXVehiculo);
             this.panel1.Controls.Add(this.btnMostrarTodo);
             this.panel1.Controls.Add(this.btnFiltrarXCliente);
             this.panel1.Controls.Add(this.btnDetalles);
@@ -80,6 +78,43 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 2;
+            // 
+            // labelTextShow
+            // 
+            this.labelTextShow.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelTextShow.Appearance.Options.UseFont = true;
+            this.labelTextShow.Location = new System.Drawing.Point(364, 65);
+            this.labelTextShow.Name = "labelTextShow";
+            this.labelTextShow.Size = new System.Drawing.Size(95, 16);
+            this.labelTextShow.TabIndex = 8;
+            this.labelTextShow.Text = "Mostrando todos";
+            // 
+            // btnMostrarTodo
+            // 
+            this.btnMostrarTodo.Location = new System.Drawing.Point(583, 12);
+            this.btnMostrarTodo.Name = "btnMostrarTodo";
+            this.btnMostrarTodo.Size = new System.Drawing.Size(199, 37);
+            this.btnMostrarTodo.TabIndex = 5;
+            this.btnMostrarTodo.Text = "Mostrar Todos";
+            this.btnMostrarTodo.Click += new System.EventHandler(this.btnMostrarTodo_Click);
+            // 
+            // btnFiltrarXCliente
+            // 
+            this.btnFiltrarXCliente.Location = new System.Drawing.Point(344, 12);
+            this.btnFiltrarXCliente.Name = "btnFiltrarXCliente";
+            this.btnFiltrarXCliente.Size = new System.Drawing.Size(205, 37);
+            this.btnFiltrarXCliente.TabIndex = 4;
+            this.btnFiltrarXCliente.Text = "Filtrar...";
+            this.btnFiltrarXCliente.Click += new System.EventHandler(this.btnFiltrarXCliente_Click);
+            // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Location = new System.Drawing.Point(179, 54);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.Size = new System.Drawing.Size(137, 40);
+            this.btnDetalles.TabIndex = 3;
+            this.btnDetalles.Text = "Mostrar Detalles";
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
             // 
             // btnDropCliente
             // 
@@ -108,56 +143,6 @@
             this.btnAddTrabajo.Text = "Realizar Servicio";
             this.btnAddTrabajo.Click += new System.EventHandler(this.btnAddTrabajo_Click);
             // 
-            // btnDetalles
-            // 
-            this.btnDetalles.Location = new System.Drawing.Point(179, 54);
-            this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.Size = new System.Drawing.Size(137, 40);
-            this.btnDetalles.TabIndex = 3;
-            this.btnDetalles.Text = "Mostrar Detalles";
-            // 
-            // btnFiltrarXCliente
-            // 
-            this.btnFiltrarXCliente.Location = new System.Drawing.Point(344, 12);
-            this.btnFiltrarXCliente.Name = "btnFiltrarXCliente";
-            this.btnFiltrarXCliente.Size = new System.Drawing.Size(105, 37);
-            this.btnFiltrarXCliente.TabIndex = 4;
-            this.btnFiltrarXCliente.Text = "Filtrar por Cliente";
-            // 
-            // btnMostrarTodo
-            // 
-            this.btnMostrarTodo.Location = new System.Drawing.Point(677, 12);
-            this.btnMostrarTodo.Name = "btnMostrarTodo";
-            this.btnMostrarTodo.Size = new System.Drawing.Size(105, 37);
-            this.btnMostrarTodo.TabIndex = 5;
-            this.btnMostrarTodo.Text = "Mostrar Todos";
-            // 
-            // btnFiltrarXVehiculo
-            // 
-            this.btnFiltrarXVehiculo.Location = new System.Drawing.Point(455, 12);
-            this.btnFiltrarXVehiculo.Name = "btnFiltrarXVehiculo";
-            this.btnFiltrarXVehiculo.Size = new System.Drawing.Size(105, 37);
-            this.btnFiltrarXVehiculo.TabIndex = 6;
-            this.btnFiltrarXVehiculo.Text = "Filtrar por Vehículo";
-            // 
-            // btnFiltrarXFecha
-            // 
-            this.btnFiltrarXFecha.Location = new System.Drawing.Point(566, 12);
-            this.btnFiltrarXFecha.Name = "btnFiltrarXFecha";
-            this.btnFiltrarXFecha.Size = new System.Drawing.Size(105, 37);
-            this.btnFiltrarXFecha.TabIndex = 7;
-            this.btnFiltrarXFecha.Text = "Filtrar por fecha";
-            // 
-            // labelTextShow
-            // 
-            this.labelTextShow.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelTextShow.Appearance.Options.UseFont = true;
-            this.labelTextShow.Location = new System.Drawing.Point(372, 66);
-            this.labelTextShow.Name = "labelTextShow";
-            this.labelTextShow.Size = new System.Drawing.Size(95, 16);
-            this.labelTextShow.TabIndex = 8;
-            this.labelTextShow.Text = "Mostrando todos";
-            // 
             // TrabajoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,11 +170,9 @@
         private DevExpress.XtraEditors.SimpleButton btnEditCliente;
         private DevExpress.XtraEditors.SimpleButton btnAddTrabajo;
         private System.Windows.Forms.BindingSource bindingSourceTrabajos;
-        private DevExpress.XtraEditors.SimpleButton btnFiltrarXFecha;
-        private DevExpress.XtraEditors.SimpleButton btnFiltrarXVehiculo;
         private DevExpress.XtraEditors.SimpleButton btnMostrarTodo;
         private DevExpress.XtraEditors.SimpleButton btnFiltrarXCliente;
         private DevExpress.XtraEditors.SimpleButton btnDetalles;
-        private DevExpress.XtraEditors.LabelControl labelTextShow;
+        public DevExpress.XtraEditors.LabelControl labelTextShow;
     }
 }

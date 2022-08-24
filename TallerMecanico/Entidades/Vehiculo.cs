@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace TallerMecanico.Entidades
 {
     [Table("Vehiculo")]
-    class Vehiculo
+    public class Vehiculo
     {
         public int Id { get; set; }
         public string Placa { get; set; } //Unico

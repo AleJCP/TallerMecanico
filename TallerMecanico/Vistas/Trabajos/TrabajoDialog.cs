@@ -24,6 +24,8 @@ namespace TallerMecanico.Vistas.Trabajos
             InitializeComponent();
             //seteamos el modo
             this.modo = modo;
+            //Seteamos la fecha de hoy en el date time
+            dateEditFecha.DateTime = DateTime.Today;
             //Cargar Binding Cliente, al seleccionar un Cliente Se carga la listade los vehiculos que posee el cliente
             bindingSourceClientes.DataSource = cServicios.ListarClientes();
             lookUpECliente.Properties.DataSource = bindingSourceClientes;
@@ -33,7 +35,41 @@ namespace TallerMecanico.Vistas.Trabajos
             bindingSourceServicios.DataSource = cServicios.ListarServicios();
             lookUpEServicios.Properties.DataSource = bindingSourceServicios;
             lookUpEServicios.Properties.DisplayMember = "Nombre";            
+            //Caso Mostrar
+            if(modo == "Mostrar")
+            {
+                //Obtener el trabajo
+                Trabajo trabajoEdit = cServicios.GetTrabajo(trabajo);
+                IDTrabajo = trabajoEdit.Id;
+                //ServiciosARealizar IdTrabajo
+                List<Servicio> serviciosARealizarEdit = cServicios.GetServiciosARealizar(trabajo).ToList();
+                //Vehiculo
+                Vehiculo v = new Vehiculo();
+                v.Id = trabajoEdit.IdVehiculo;
 
+                Vehiculo vehiculoEdit = cServicios.GetVehiculo(v);
+                //Cargar los datos del cliente,
+                Cliente cliente = new Cliente();
+                cliente.Id = vehiculoEdit.IdCliente;
+
+                Cliente clienteEdit = cServicios.GetCliente(cliente);
+                //Mostrar
+                ListaServiciosARealizar = serviciosARealizarEdit;
+                lookUpECliente.EditValue = clienteEdit;
+                lookUpEVehiculo.EditValue = vehiculoEdit;
+                //fecha
+                dateEditFecha.DateTime = trabajoEdit.Fecha;
+                textComentario.Text = trabajoEdit.Comentarios;
+
+                textComentario.Enabled = false;
+                lookUpECliente.Enabled = false;
+                lookUpEServicios.Enabled = false;                
+                btnAddTrabajo.Enabled = false;
+                btnDropTrabajo.Enabled = false;
+                btnGuardar.Visible = false;
+                lookUpEVehiculo.Enabled = false;
+
+            }
             //Caso de editar
             if(trabajo != null)
             {
@@ -66,6 +102,7 @@ namespace TallerMecanico.Vistas.Trabajos
 
             CargarTablaTrabajos();
         }
+        //servicios a relaizar por vehiculo
         void CargarTablaTrabajos()
         {
             bindingSourceTrabajos.DataSource = ListaServiciosARealizar.ToList();
@@ -93,7 +130,12 @@ namespace TallerMecanico.Vistas.Trabajos
                 //Desactivamos el btn Guardar
                 btnGuardar.Enabled = false;
                 labelVehiculo.Text = "... ...";
-                lookUpEVehiculo.Enabled = true;
+                //Para que no me ctive el control al mostrar detalles
+                if (!modo.Equals("Mostrar"))
+                {
+                    lookUpEVehiculo.Enabled = true;
+                }
+                
             }
 
         }
@@ -164,7 +206,7 @@ namespace TallerMecanico.Vistas.Trabajos
                 //Seteamos el vehiculo
                 trabajo.IdVehiculo = vehiculoSeleccionado.Id;
                 //Comprobar que haya una fecha y sea igual o mayor que hoy
-                if (trabajo.Fecha != null && trabajo.Fecha >= DateTime.Today)
+                if (trabajo.Fecha != null)
                 {
                     if (ListaServiciosARealizar.Count > 0)
                     {

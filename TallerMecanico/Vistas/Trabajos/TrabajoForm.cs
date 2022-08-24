@@ -14,6 +14,13 @@ namespace TallerMecanico.Vistas.Trabajos
     public partial class TrabajoForm : Form
     {
         ICServicios cServicios = new CServicios();
+        //Variables de Filtros
+        Cliente clienteSeleccionado = new Cliente();
+        Vehiculo vehiculoSeleccionado = new Vehiculo();
+        DateTime? fechaSeleccionada = null;
+        string fechaTipo { get; set; }
+
+        public bool filtroEncendido { get; set; }
         public TrabajoForm()
         {
             InitializeComponent();
@@ -29,8 +36,19 @@ namespace TallerMecanico.Vistas.Trabajos
 
         public void CargarTabla()
         {
-            bindingSourceTrabajos.DataSource = cServicios.ListarTrabajosDTO();
-            gridControlTrabajos.DataSource = bindingSourceTrabajos;
+            if (!filtroEncendido)
+            {
+                bindingSourceTrabajos.DataSource = cServicios.ListarTrabajosDTO();
+                gridControlTrabajos.DataSource = bindingSourceTrabajos;
+                labelTextShow.Text = "Mostrando Todos";
+            }
+            else
+            {
+                bindingSourceTrabajos.DataSource = cServicios.ListarTrabajosDTOFiltrado(clienteSeleccionado,vehiculoSeleccionado,fechaSeleccionada,fechaTipo);
+                gridControlTrabajos.DataSource = bindingSourceTrabajos;
+                labelTextShow.Text = "Filtrado";
+            }
+            
         }
 
         private void btnEditCliente_Click(object sender, EventArgs e)
@@ -70,6 +88,46 @@ namespace TallerMecanico.Vistas.Trabajos
                 }
             }
 
+        }
+
+        private void btnFiltrarXCliente_Click(object sender, EventArgs e)
+        {            
+            Form Dialog = new TrabajoFiltroDialog(this);
+            Dialog.Show();
+            CargarTabla();
+        }
+
+        public void AplicarFiltros(Cliente clienteS,Vehiculo vehiculoS,DateTime? fechaS, string fechaTipo)
+        {
+            clienteSeleccionado = clienteS;
+            vehiculoSeleccionado = vehiculoS;
+            fechaSeleccionada = fechaS;
+            filtroEncendido = true;
+            this.fechaTipo = fechaTipo;
+            CargarTabla();
+        }
+
+        private void btnMostrarTodo_Click(object sender, EventArgs e)
+        {
+            clienteSeleccionado = null;
+            vehiculoSeleccionado = null;
+            fechaSeleccionada = null;
+            filtroEncendido = false;
+            CargarTabla();
+        }
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            TrabajoDTO trabajoDTO = bindingSourceTrabajos.Current as TrabajoDTO;
+
+            if (trabajoDTO != null)
+            {
+                Trabajo trabajoSelected = new Trabajo();
+                trabajoSelected.Id = trabajoDTO.Id;
+                Form Dialog = new TrabajoDialog(trabajoSelected, "Mostrar");
+                Dialog.ShowDialog();
+                CargarTabla();
+            }
         }
     }
 }

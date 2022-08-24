@@ -44,6 +44,8 @@ namespace TallerMecanico
 
         #region TrabajoDTO
         ICollection<TrabajoDTO> ListarTrabajosDTO();
+        ICollection<TrabajoDTO> ListarTrabajosDTOFiltrado(Cliente clienteE, Vehiculo vehiculoE, DateTime? fechaE,string fechaT);
+        int ContarTrabajosPorFecha(DateTime date);
         Trabajo GetTrabajo(Trabajo trabajo);
         ICollection<Servicio> GetServiciosARealizar(Trabajo trabajo);
         bool AddTrabajo(Trabajo trabajo, Vehiculo vehiculo, List<Servicio> serviciosARealizar);
