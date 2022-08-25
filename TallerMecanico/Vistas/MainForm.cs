@@ -5,28 +5,35 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TallerMecanico.Entidades;
 
 namespace TallerMecanico.Vistas
 {
-    public partial class MainForm : Form
+    partial class MainForm : Form
     {
         Form activeForm;
-        public MainForm()
+        bool MenuActive = true;
+        public User usuarioSesion;
+        public MainForm(User usuarioSesion)
         {
-            InitializeComponent();                        
-            //Abrir Form del MENU
+            InitializeComponent();
+
+            this.usuarioSesion = usuarioSesion;
+            labelUsuario.Text = $@"Bienvenido 
+{usuarioSesion.Nombre} {usuarioSesion.Apellido}";
+
             Form MenuForm = new Principal.MenuPrincipal();
             mainLabel.Text = "Menu Principal";
             AbrirFormHijo(MenuForm);
             activeForm = MenuForm;
-
-            //Evento de cierre de aplicacion
-            //this.Disposed += ((s, x) =>
-            //{
-            //    Application.Exit();
-            //});
+            
+            this.Disposed += ((s, x) =>
+            {
+                Application.Exit();
+            });
         }
 
         private void AbrirFormHijo(Form formHijo)
@@ -102,6 +109,29 @@ namespace TallerMecanico.Vistas
                 
                 
             }
+        }
+
+        private void btnMenuTool_Click(object sender, EventArgs e)
+        {
+            if (MenuActive)
+            {
+                for (int i = 244; i >= 0; i -=15)
+                {
+                    Thread.Sleep(1);
+                    MenuPanel.Width = i;
+                }
+                MenuActive = false;
+            }
+            else
+            {
+                for (int i = 0; i <= 244; i += 15)
+                {
+                    Thread.Sleep(1);
+                    MenuPanel.Width = i;
+                }                
+                MenuActive = true;
+            }
+
         }
     }
 }

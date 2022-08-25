@@ -32,13 +32,13 @@
             this.gridControlVehiculo = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelTextShow = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnDropVehiculo = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditVehiculo = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddVehiculo = new DevExpress.XtraEditors.SimpleButton();
             this.bindingSourceVehiculo = new System.Windows.Forms.BindingSource(this.components);
-            this.labelTextShow = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlVehiculo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -58,6 +58,8 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridView1.Appearance.Row.Options.UseFont = true;
             this.gridView1.GridControl = this.gridControlVehiculo;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -76,6 +78,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(797, 112);
             this.panel1.TabIndex = 2;
+            // 
+            // labelTextShow
+            // 
+            this.labelTextShow.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelTextShow.Appearance.Options.UseFont = true;
+            this.labelTextShow.Location = new System.Drawing.Point(462, 93);
+            this.labelTextShow.Name = "labelTextShow";
+            this.labelTextShow.Size = new System.Drawing.Size(95, 16);
+            this.labelTextShow.TabIndex = 5;
+            this.labelTextShow.Text = "Mostrando todos";
             // 
             // simpleButton2
             // 
@@ -121,16 +133,6 @@
             this.btnAddVehiculo.TabIndex = 0;
             this.btnAddVehiculo.Text = "Agregar Vehiculo";
             this.btnAddVehiculo.Click += new System.EventHandler(this.btnAddVehiculo_Click);
-            // 
-            // labelTextShow
-            // 
-            this.labelTextShow.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelTextShow.Appearance.Options.UseFont = true;
-            this.labelTextShow.Location = new System.Drawing.Point(462, 93);
-            this.labelTextShow.Name = "labelTextShow";
-            this.labelTextShow.Size = new System.Drawing.Size(95, 16);
-            this.labelTextShow.TabIndex = 5;
-            this.labelTextShow.Text = "Mostrando todos";
             // 
             // VehiculoForm
             // 

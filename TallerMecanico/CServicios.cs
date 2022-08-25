@@ -11,7 +11,7 @@ namespace TallerMecanico
     class CServicios : ICServicios
     {
         #region Usuario
-        bool ICServicios.TryLogIn(User tryUser)
+        User ICServicios.TryLogIn(User tryUser)
         {
             return new LogicaUsers().TryLogIn(tryUser);
         }

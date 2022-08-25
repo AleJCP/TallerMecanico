@@ -26,10 +26,10 @@ namespace TallerMecanico
             User usuario = new User();
             usuario.Usuario = textUser.Text;
             usuario.Password = textPass.Text;
-
-            if (cservicios.TryLogIn(usuario))
-            {
-                Form mainForm = new MainForm();
+            usuario = cservicios.TryLogIn(usuario);
+            if (usuario != null)
+            {                
+                Form mainForm = new MainForm(usuario);
                 mainForm.Show();
                 //Eliminamos el evento para no cerrar la app
                 this.Disposed -= ExitApp;

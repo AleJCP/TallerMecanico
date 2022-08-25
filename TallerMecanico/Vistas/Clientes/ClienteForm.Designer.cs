@@ -93,6 +93,8 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridView1.Appearance.Row.Options.UseFont = true;
             this.gridView1.GridControl = this.gridControlCliente;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;

@@ -9,7 +9,7 @@ namespace TallerMecanico.Logica
 {
     class LogicaUsers
     {
-        public bool TryLogIn(User tryUser)
+        public User TryLogIn(User tryUser)
         {
             using (ModelContext bd = new ModelContext())
             {
@@ -18,14 +18,7 @@ namespace TallerMecanico.Logica
                           select u;
                 User usuarioLogeado = lst.FirstOrDefault() as User;
 
-                if (usuarioLogeado != null)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return usuarioLogeado;               
             }
         }
     }

@@ -10,7 +10,7 @@ namespace TallerMecanico
     interface ICServicios
     {
         #region Usuario
-        bool TryLogIn(User tryUser);
+        User TryLogIn(User tryUser);
         #endregion
 
         #region Cliente
