@@ -22,21 +22,15 @@ namespace TallerMecanico.Vistas.Trabajos
         Vehiculo vehiculoSeleccionado = new Vehiculo();
         DateTime? fechaSeleccionada = null;
 
-        public TrabajoFiltroDialog(TrabajoForm trabajoForm, ICollection<Object> coleccion = null, string modo = "Aplicar")
+        public TrabajoFiltroDialog(TrabajoForm trabajoForm, ICollection<Object> coleccion = null)
         {
             InitializeComponent();
             this.trabajoForm = trabajoForm;
-            //setar bindings
+            //setar bindings Cliente al Lookup
             bindingSourceClientes.DataSource = cServicios.ListarClientes();
             lookUpECliente.Properties.DataSource = bindingSourceClientes;
             lookUpECliente.Properties.DisplayMember = "Cedula";
-            lookUpECliente.Properties.KeyMember = "Cedula";
-
-            if (modo.Equals("Editar"))
-            {
-                //setear la info de la coleccion
-            }
-
+            lookUpECliente.Properties.KeyMember = "Cedula";            
         }
 
         private void lookUpECliente_EditValueChanged(object sender, EventArgs e)
@@ -51,7 +45,7 @@ namespace TallerMecanico.Vistas.Trabajos
                 }
                 //Seteamos info
                 labelCliente.Text = $"{clienteSeleccionado.Nombre} {clienteSeleccionado.Apellido}";
-                //Cargamos vehiculos
+                //Cargamos vehiculos en el lookup
                 bindingSourceVehiculos.DataSource = cServicios.ListarVehiculosPorCliente(clienteSeleccionado);
                 lookUpEVehiculo.Properties.DataSource = bindingSourceVehiculos;
                 lookUpEVehiculo.Properties.DisplayMember = "Placa";
@@ -80,8 +74,7 @@ namespace TallerMecanico.Vistas.Trabajos
         }
 
         private void btnAplicarFiltro_Click(object sender, EventArgs e)
-        {
-            //Capturar objetos
+        {            
             fechaSeleccionada = dateEditFecha.DateTime;
             if(fechaSeleccionada != null)
             {
@@ -106,11 +99,9 @@ namespace TallerMecanico.Vistas.Trabajos
                 MessageBox.Show("Para aplicar el filtro debes usar al menos un campo");
             }
             else
-            {
-                //Funcion aplicar filtros
+            {                
                 trabajoForm.AplicarFiltros(clienteSeleccionado,vehiculoSeleccionado,fechaSeleccionada,fechaTipo);
-            }
-            //Recuerda la restriccion de la fecha que no permite editarla si es una fecha anterior a hoy
+            }            
         }
     }
 }

@@ -21,17 +21,15 @@ namespace TallerMecanico.Vistas.Trabajos
         int IDTrabajo { get; set; }
         public TrabajoDialog(Trabajo trabajo = null,string modo = "Guardar")
         {
-            InitializeComponent();
-            //seteamos el modo
-            this.modo = modo;
-            //Seteamos la fecha de hoy en el date time
+            InitializeComponent();            
+            this.modo = modo;            
             dateEditFecha.DateTime = DateTime.Today;
-            //Cargar Binding Cliente, al seleccionar un Cliente Se carga la lista de los vehiculos que posee el cliente
+            //Cargar Binding Cliente
             bindingSourceClientes.DataSource = cServicios.ListarClientes();
             lookUpECliente.Properties.DataSource = bindingSourceClientes;
             lookUpECliente.Properties.DisplayMember = "Cedula";
             lookUpECliente.Properties.KeyMember = "Cedula";
-            //Cargar el Binding de los Servicios
+            //Cargar el Binding Servicios
             bindingSourceServicios.DataSource = cServicios.ListarServicios();
             lookUpEServicios.Properties.DataSource = bindingSourceServicios;
             lookUpEServicios.Properties.DisplayMember = "Nombre";            

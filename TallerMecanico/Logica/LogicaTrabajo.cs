@@ -35,9 +35,9 @@ namespace TallerMecanico.Logica
         {
             using (ModelContext context = new ModelContext())
             {
-                List<TrabajoDTO> lst = new List<TrabajoDTO>();                
+                List<TrabajoDTO> lst = new List<TrabajoDTO>();               
                 //buscar por cliente sin fecha
-                 if (clienteE.Id != 0 && vehiculoE.Id == 0 && fechaE.Value.Year == 1)
+                if (clienteE.Id != 0 && vehiculoE.Id == 0 && fechaE.Value.Year == 1)
                 {
                     var l = from t in context.Trabajos
                               join v in context.Vehiculos on t.IdVehiculo equals v.Id
@@ -71,16 +71,14 @@ namespace TallerMecanico.Logica
                                 Fecha = t.Fecha
                             };
                     lst = l.ToList();
-                }
-                //IGUAL
-                //buscar por cliente con fecha
+                }                
+                //buscar por cliente con fecha (Igual a la fecha ingresada)
                 else if (clienteE.Id != 0 && vehiculoE.Id == 0 && fechaE.Value.Year != 1 && fechaT.Equals("Igual"))
                 {
                     var l = from t in context.Trabajos
                             join v in context.Vehiculos on t.IdVehiculo equals v.Id
                             join c in context.Clientes on v.IdCliente equals c.Id
-                            where c.Id == clienteE.Id && t.Fecha == fechaE.Value
-                            //where v.Id == vehiculoE.Id
+                            where c.Id == clienteE.Id && t.Fecha == fechaE.Value                            
                             select new TrabajoDTO()
                             {
                                 Id = t.Id,
@@ -91,13 +89,12 @@ namespace TallerMecanico.Logica
                             };
                     lst = l.ToList();
                 }
-                //buscar por vehiculo con fecha
+                //buscar por vehiculo con fecha (Igual a la fecha ingresada)
                 else if (vehiculoE.Id != 0 && fechaE.Value.Year != 1 && fechaT.Equals("Igual"))
                 {
                     var l = from t in context.Trabajos
                             join v in context.Vehiculos on t.IdVehiculo equals v.Id
-                            join c in context.Clientes on v.IdCliente equals c.Id
-                            //where c.Id == clienteE.Id
+                            join c in context.Clientes on v.IdCliente equals c.Id                            
                             where v.Id == vehiculoE.Id && t.Fecha == fechaE.Value
                             select new TrabajoDTO()
                             {
@@ -109,7 +106,7 @@ namespace TallerMecanico.Logica
                             };
                     lst = l.ToList();
                 }
-                 //Buscar solo por fecha
+                //Buscar solo por fecha (Igual a la fecha ingresada)
                 else if (clienteE.Id == 0 && vehiculoE.Id == 0 && fechaE.Value.Year != 1 && fechaT.Equals("Igual"))
                 {
                     var l = from t in context.Trabajos
@@ -126,9 +123,8 @@ namespace TallerMecanico.Logica
                             };
                     lst = l.ToList();
                 }
-
-                //Mayor
-                //buscar por cliente con fecha
+                
+                //buscar por cliente con fecha (Mayor a la fecha ingresada)
                 else if (clienteE.Id != 0 && vehiculoE.Id == 0 && fechaE.Value.Year != 1 && fechaT.Equals("Mayor"))
                 {
                     var l = from t in context.Trabajos
@@ -146,7 +142,7 @@ namespace TallerMecanico.Logica
                             };
                     lst = l.ToList();
                 }
-                //buscar por vehiculo con fecha
+                //buscar por vehiculo con fecha (Mayor a la fecha ingresada)
                 else if (vehiculoE.Id != 0 && fechaE.Value.Year != 1 && fechaT.Equals("Mayor"))
                 {
                     var l = from t in context.Trabajos
@@ -163,8 +159,8 @@ namespace TallerMecanico.Logica
                                 Fecha = t.Fecha
                             };
                     lst = l.ToList();
-                } 
-                 //Buscar solo por fecha
+                }
+                //Buscar solo por fecha (Mayor a la fecha ingresada)
                 else if (clienteE.Id == 0 && vehiculoE.Id == 0 && fechaE.Value.Year != 1 && fechaT.Equals("Mayor"))
                 {
                     var l = from t in context.Trabajos
@@ -180,17 +176,14 @@ namespace TallerMecanico.Logica
                                 Fecha = t.Fecha
                             };
                     lst = l.ToList();
-                }
-
-                //MENOR
-                //buscar por cliente con fecha
+                }                
+                //buscar por cliente con fecha (Menor a la fecha ingresada)
                 else if (clienteE.Id != 0 && vehiculoE.Id == 0 && fechaE.Value.Year != 1 && fechaT.Equals("Menor"))
                 {
                     var l = from t in context.Trabajos
                             join v in context.Vehiculos on t.IdVehiculo equals v.Id
                             join c in context.Clientes on v.IdCliente equals c.Id
-                            where c.Id == clienteE.Id && t.Fecha < fechaE.Value
-                            //where v.Id == vehiculoE.Id
+                            where c.Id == clienteE.Id && t.Fecha < fechaE.Value                            
                             select new TrabajoDTO()
                             {
                                 Id = t.Id,
@@ -201,7 +194,7 @@ namespace TallerMecanico.Logica
                             };
                     lst = l.ToList();
                 }
-                //buscar por vehiculo con fecha
+                //buscar por vehiculo con fecha (Menor a la fecha ingresada)
                 else if (vehiculoE.Id != 0 && fechaE.Value.Year != 1 && fechaT.Equals("Menor"))
                 {
                     var l = from t in context.Trabajos
@@ -220,7 +213,7 @@ namespace TallerMecanico.Logica
                     lst = l.ToList();
                 }
 
-                //Buscar solo por fecha
+                //Buscar solo por fecha (Menor a la fecha ingresada)
                 else if (clienteE.Id == 0 && vehiculoE.Id == 0 && fechaE.Value.Year != 1 && fechaT.Equals("Menor"))
                 {
                     var l = from t in context.Trabajos
@@ -269,8 +262,7 @@ namespace TallerMecanico.Logica
         public ICollection<Servicio> GetServiciosARealizar(Trabajo trabajoE)
         {
             using (ModelContext context = new ModelContext())
-            {
-                //Por ID              
+            {                       
                 var lst = from svv in context.Servicio_Vehiculos
                           where svv.IdTrabajo == trabajoE.Id
                           select svv;
@@ -294,18 +286,10 @@ namespace TallerMecanico.Logica
             try
             {
                 using (ModelContext context = new ModelContext())
-                {
-                    //context.Servicios.Add(servicio);
-                    //context.SaveChanges();
-
+                {                 
                     using (var DBTRANSACT = context.Database.BeginTransaction())
-                    {
-                        //Seteamos la info del vehiculo
-                        // y agregamos el trabajo en la tabla con transacciones                        
-                        trabajo = context.Trabajos.Add(trabajo);
-
-                        //Agregar Todos los servicios, DECIDIR SI CAMBIAR LA LOGICA DE LA CALVE DEL VEHICULO 
-                        //MEnos es mas
+                    {                                             
+                        trabajo = context.Trabajos.Add(trabajo);                        
                         foreach (var item in serviciosARealizar)
                         {
                             Servicio_Vehiculo sv = new Servicio_Vehiculo();
@@ -350,9 +334,9 @@ namespace TallerMecanico.Logica
 
                         ///Como es una tabla de relacion, en caso de alguna modificacion en cuanto a los servicio
                         ///Es importante eliminar todos los registros y volverlos a llenar
-                        ///Lo cual mantiene una correcta integridad ed la iformacion
+                        ///Lo cual mantiene una correcta integridad ed la informacion
                         ///
-                        //Logica del servicio Eliminar los servicios asociados
+                        //Eliminar los servicios asociados
                         var lstServ = from sv in context.Servicio_Vehiculos
                                       where sv.IdTrabajo == trabajo.Id
                                       select sv;
@@ -366,7 +350,7 @@ namespace TallerMecanico.Logica
                         context.SaveChanges();
                         //Guardamos para que permita hacer la inserción
 
-                        //Logica del servicio Agregar los servicios asociados
+                        //Agregar los nuevos servicios asociados
                         foreach (var item in serviciosARealizar)
                         {
                             Servicio_Vehiculo sv = new Servicio_Vehiculo();

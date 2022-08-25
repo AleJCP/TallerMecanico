@@ -25,7 +25,7 @@ namespace TallerMecanico.Vistas.Servicios
         {
             Form Dialog = new ServicioDialog(null, "Guardar");
             Dialog.ShowDialog();
-            //Luego de la operacion actualizamos la tabla
+            
             CargarTabla();
         }
 
@@ -42,7 +42,7 @@ namespace TallerMecanico.Vistas.Servicios
             {
                 Form Dialog = new ServicioDialog(servicioSelected, "Editar");
                 Dialog.ShowDialog();
-                //Luego de la operacion actualizamos la tabla
+                
                 CargarTabla();
             }            
         }

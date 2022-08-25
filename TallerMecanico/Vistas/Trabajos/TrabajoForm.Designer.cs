@@ -34,7 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelTextShow = new DevExpress.XtraEditors.LabelControl();
             this.btnMostrarTodo = new DevExpress.XtraEditors.SimpleButton();
-            this.btnFiltrarXCliente = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFiltrar = new DevExpress.XtraEditors.SimpleButton();
             this.btnDetalles = new DevExpress.XtraEditors.SimpleButton();
             this.btnDropCliente = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditCliente = new DevExpress.XtraEditors.SimpleButton();
@@ -68,7 +68,7 @@
             // 
             this.panel1.Controls.Add(this.labelTextShow);
             this.panel1.Controls.Add(this.btnMostrarTodo);
-            this.panel1.Controls.Add(this.btnFiltrarXCliente);
+            this.panel1.Controls.Add(this.btnFiltrar);
             this.panel1.Controls.Add(this.btnDetalles);
             this.panel1.Controls.Add(this.btnDropCliente);
             this.panel1.Controls.Add(this.btnEditCliente);
@@ -98,14 +98,14 @@
             this.btnMostrarTodo.Text = "Mostrar Todos";
             this.btnMostrarTodo.Click += new System.EventHandler(this.btnMostrarTodo_Click);
             // 
-            // btnFiltrarXCliente
+            // btnFiltrar
             // 
-            this.btnFiltrarXCliente.Location = new System.Drawing.Point(344, 12);
-            this.btnFiltrarXCliente.Name = "btnFiltrarXCliente";
-            this.btnFiltrarXCliente.Size = new System.Drawing.Size(205, 37);
-            this.btnFiltrarXCliente.TabIndex = 4;
-            this.btnFiltrarXCliente.Text = "Filtrar...";
-            this.btnFiltrarXCliente.Click += new System.EventHandler(this.btnFiltrarXCliente_Click);
+            this.btnFiltrar.Location = new System.Drawing.Point(344, 12);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(205, 37);
+            this.btnFiltrar.TabIndex = 4;
+            this.btnFiltrar.Text = "Filtrar...";
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // btnDetalles
             // 
@@ -171,7 +171,7 @@
         private DevExpress.XtraEditors.SimpleButton btnAddTrabajo;
         private System.Windows.Forms.BindingSource bindingSourceTrabajos;
         private DevExpress.XtraEditors.SimpleButton btnMostrarTodo;
-        private DevExpress.XtraEditors.SimpleButton btnFiltrarXCliente;
+        private DevExpress.XtraEditors.SimpleButton btnFiltrar;
         private DevExpress.XtraEditors.SimpleButton btnDetalles;
         public DevExpress.XtraEditors.LabelControl labelTextShow;
     }

@@ -36,7 +36,7 @@ namespace TallerMecanico.Vistas.Servicios
             servicio.Id = IDServicio;
             servicio.Nombre = textNombre.Text;
             servicio.Descripcion = textDescripcion.Text;
-            //
+            //Validaciones
             if (String.IsNullOrEmpty(servicio.Nombre) || String.IsNullOrEmpty(servicio.Descripcion))
             {
                 MessageBox.Show($"No debes dejar campos vacíos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

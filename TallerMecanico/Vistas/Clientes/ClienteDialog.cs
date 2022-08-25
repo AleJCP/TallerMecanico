@@ -19,8 +19,7 @@ namespace TallerMecanico.Vistas.Clientes
 
         public ClienteDialog(Cliente clienteAEditar = null, string modo = "Guardar")
         {
-            InitializeComponent();
-            //seteamos la variable modo que se utiliza para la logica de guardar o editar
+            InitializeComponent();            
             this.modo = modo;
             if (modo.Equals("Editar"))
             {
@@ -44,8 +43,7 @@ namespace TallerMecanico.Vistas.Clientes
             cliente.Apellido = textApellido.Text;
             cliente.Cedula = textCedula.Text;
             cliente.Telefono = textTelefono.Text;
-            cliente.Direccion = textDireccion.Text;
-            //Funcion de validacion pronto
+            cliente.Direccion = textDireccion.Text;            
             //Validacion de CAMPOS
             if (String.IsNullOrEmpty(cliente.Nombre) || String.IsNullOrEmpty(cliente.Apellido) ||
                 String.IsNullOrEmpty(cliente.Cedula) || String.IsNullOrEmpty(cliente.Telefono) ||
